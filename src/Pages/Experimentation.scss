@@ -1,0 +1,24 @@
+.experimentation-container{
+    text-align: center;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .experimentation{
+        position: relative;
+        transform-style: preserve-3d;
+        letter-spacing: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        .experimentation-lettres{
+            font-family: "retrolight";
+            font-size: 4em;
+            font-weight: 100;
+            pointer-events: none;
+        }
+    }
+}

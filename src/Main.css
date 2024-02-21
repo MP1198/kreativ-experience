@@ -1,0 +1,30 @@
+.experimentation-container {
+  text-align: center;
+  perspective: 1000px;
+}
+.experimentation-container .experimentation {
+  position: relative;
+  transform-style: preserve-3d;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+.experimentation-container .experimentation .experimentation-lettres {
+  font-family: "retrolight";
+  font-size: 4em;
+  font-weight: 100;
+  pointer-events: none;
+  transform: rotate3d(1, 1, 1, 90deg);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.root {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}/*# sourceMappingURL=Main.css.map */

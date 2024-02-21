@@ -1,0 +1,24 @@
+.grille-container {
+  background-color: rgb(73, 73, 73);
+}
+.grille-container .grille-dots-container {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+}
+.grille-container .grille-dots-container .grille-dots {
+  padding: 0.5em;
+  margin: 0.1em;
+}
+.grille-container .grille-dots-container .grille-dots:hover {
+  background-color: rgba(255, 0, 255, 0.247);
+  border-radius: 50%;
+  cursor: crosshair;
+}
+.grille-container .grille-dots-container .grille-dots .inner-dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: black;
+  opacity: 0.5;
+}/*# sourceMappingURL=Grille.css.map */

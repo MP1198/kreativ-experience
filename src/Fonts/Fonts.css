@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "curetro";
+  src: url("curetro-webfont.woff2") format("woff2"), url("curetro-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "mercy_christole";
+  src: url("mercy_christole-webfont.woff2") format("woff2"), url("mercy_christole-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "plexifont";
+  src: url("plexifont-webfont.woff2") format("woff2"), url("plexifont-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "retrolight";
+  src: url("retrolight-webfont.woff2") format("woff2"), url("retrolight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "roblox";
+  src: url("roblox_font_regular-webfont.woff2") format("woff2"), url("roblox_font_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "unica_oneregular";
+  src: url("unicaone-regular-webfont.woff2") format("woff2"), url("unicaone-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}/*# sourceMappingURL=Fonts.css.map */
