@@ -30,7 +30,7 @@
   box-sizing: border-box;
 }
 
-.root {
-  overflow-x: hidden;
-  overflow-y: hidden;
+#root {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }/*# sourceMappingURL=Main.css.map */

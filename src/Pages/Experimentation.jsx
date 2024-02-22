@@ -53,7 +53,6 @@ const Experimentation = () => {
                 easing: 'easeOutElastic(1, 2)',
                 duration: 750,
             }); 
-            console.log(lettres);
         }
         function hoverLeave() {
             anime({

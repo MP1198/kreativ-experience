@@ -1,0 +1,77 @@
+// Variables de couleurs
+$clr-vert: #0f0;
+$clr-jaune: #ff0;
+$clr-rouge: #f00;
+$clr-rose: #f0f;
+$clr-bleu: #0ff;
+
+.bg-bigContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c2c2c;
+
+    .bg-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 5px;
+        
+        .bg-card{
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 5%;
+            background: rgb(83, 83, 83);
+            overflow: hidden;
+            
+            &:hover::before{
+                opacity: 1;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                top: var(--y);
+                left: var(--x);
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+                transition: 0.5s, top 0s, left 0s;
+                transform: translate(-50%, -50%);
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                inset: 3px;
+                background: rgb(83, 83, 83,0.9);
+                border-radius: 5%;
+            }
+        }
+        .vert{
+            &::before{
+                background: radial-gradient($clr-vert, transparent, transparent);   
+            }
+        }
+        .rouge{
+            &::before{
+                background: radial-gradient($clr-rouge, transparent, transparent);
+            }
+        }
+        .rose{
+            &::before{
+                background: radial-gradient($clr-rose, transparent, transparent);
+            }
+        }
+        .jaune{
+            &::before{
+                background: radial-gradient($clr-jaune, transparent, transparent);
+            }
+        }
+        .bleu{
+            &::before{
+                background: radial-gradient($clr-bleu, transparent, transparent);
+            }
+        }
+    }
+}

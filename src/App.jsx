@@ -1,9 +1,14 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 // import Accueil from "./Pages/Accueil";
 // import Grille from "./Components/Grille/Grille";
-import GrilleMultiple from "./Components/GrilleMultiple/GrilleMultiple";
+// import GrilleMultiple from "./Components/GrilleMultiple/GrilleMultiple";
 // import SvgMorph from "./Components/SvgMorph/SvgMorph";
 // import Experimentation from "./Pages/Experimentation";
+// import BackgroundLights from "./Components/BackgroundLights/BackgroundLights";
+// import BackgroundLights2 from "./Components/BackgroundLights2/BackgroundLights2";
+// import BackgroundBlocks from "./Components/BackgroundBlocks/BackgroundBlocks";
+// import ReactiveDots from "./Components/ReactiveDots/ReactiveDots";
+import ReactiveRain from "./Components/ReactiveRain/ReactiveRain";
 import Layout from "./Components/Layout/Layout";
 import "./Fonts/Fonts.scss";
 
@@ -32,7 +37,7 @@ const App = () => {
         {
           path: "/",
           index: true,
-          element: <GrilleMultiple />
+          element: <ReactiveRain />
         },
         // {
         //   path: "/",

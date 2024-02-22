@@ -1,0 +1,57 @@
+.bg-bigContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2c2c2c;
+}
+.bg-bigContainer .bg-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+.bg-bigContainer .bg-container .bg-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+  background: rgb(83, 83, 83);
+  overflow: hidden;
+}
+.bg-bigContainer .bg-container .bg-card:hover::before {
+  opacity: 1;
+}
+.bg-bigContainer .bg-container .bg-card::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0.5s, top 0s, left 0s;
+  transform: translate(-50%, -50%);
+}
+.bg-bigContainer .bg-container .bg-card::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: rgba(83, 83, 83, 0.9);
+  border-radius: 5%;
+}
+.bg-bigContainer .bg-container .vert::before {
+  background: radial-gradient(#0f0, transparent, transparent);
+}
+.bg-bigContainer .bg-container .rouge::before {
+  background: radial-gradient(#f00, transparent, transparent);
+}
+.bg-bigContainer .bg-container .rose::before {
+  background: radial-gradient(#f0f, transparent, transparent);
+}
+.bg-bigContainer .bg-container .jaune::before {
+  background: radial-gradient(#ff0, transparent, transparent);
+}
+.bg-bigContainer .bg-container .bleu::before {
+  background: radial-gradient(#0ff, transparent, transparent);
+}/*# sourceMappingURL=BackgroundLights.css.map */
