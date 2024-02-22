@@ -1,11 +1,18 @@
 .experimentation-container {
   text-align: center;
   perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .experimentation-container .experimentation {
   position: relative;
   transform-style: preserve-3d;
   letter-spacing: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 .experimentation-container .experimentation .experimentation-lettres {
@@ -13,7 +20,6 @@
   font-size: 4em;
   font-weight: 100;
   pointer-events: none;
-  transform: rotate3d(1, 1, 1, 90deg);
 }
 
 *,

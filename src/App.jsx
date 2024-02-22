@@ -1,8 +1,10 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 // import Accueil from "./Pages/Accueil";
-import Grille from "./Components/Grille";
+// import Grille from "./Components/Grille/Grille";
+import GrilleMultiple from "./Components/GrilleMultiple/GrilleMultiple";
+// import SvgMorph from "./Components/SvgMorph/SvgMorph";
 // import Experimentation from "./Pages/Experimentation";
-import Layout from "./Components/Layout";
+import Layout from "./Components/Layout/Layout";
 import "./Fonts/Fonts.scss";
 
 // fonts
@@ -30,7 +32,7 @@ const App = () => {
         {
           path: "/",
           index: true,
-          element: <Grille />
+          element: <GrilleMultiple />
         },
         // {
         //   path: "/",
