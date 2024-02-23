@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import anime from "animejs";
-import "./Experimentation.scss";
+import "Experimentation.scss";
 
 
 const Experimentation = () => {

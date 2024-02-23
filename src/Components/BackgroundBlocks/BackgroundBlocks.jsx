@@ -5,7 +5,6 @@ import anime from "animejs";
 const BackgroundBlocks = () => {
     useEffect(() => {
         const container = document.querySelector(".bgb-container");
-        // const randomColor = () => Math.floor(Math.random() * 256);
         function animBlocks() {
             const blocks = Array.from(document.querySelectorAll(".bgb-block"));
             blocks.forEach((block) => {
@@ -15,7 +14,6 @@ const BackgroundBlocks = () => {
                     translateX: ()=>anime.random(-900, 900),
                     translateY: ()=>anime.random(-500, 500),
                     scale: ()=>anime.random(1, 5),
-                    // backgroundColor: () => `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`,
                     duration: 2000,
                 });
             });

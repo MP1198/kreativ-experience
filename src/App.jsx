@@ -8,7 +8,9 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 // import BackgroundLights2 from "./Components/BackgroundLights2/BackgroundLights2";
 // import BackgroundBlocks from "./Components/BackgroundBlocks/BackgroundBlocks";
 // import ReactiveDots from "./Components/ReactiveDots/ReactiveDots";
-import ReactiveRain from "./Components/ReactiveRain/ReactiveRain";
+// import ReactiveRain from "./Components/ReactiveRain/ReactiveRain";
+// import ClickParticules from "./Components/ClickParticules/ClickParticules";
+// import Perspective from "./Pages/Perspective/Perspective";
 import Layout from "./Components/Layout/Layout";
 import "./Fonts/Fonts.scss";
 
@@ -25,6 +27,7 @@ import "./Fonts/roblox_font_regular-webfont.woff";
 import "./Fonts/roblox_font_regular-webfont.woff2";
 import "./Fonts/unicaone-regular-webfont.woff";
 import "./Fonts/unicaone-regular-webfont.woff2";
+import DotsColor from "./Components/DotsColor/DotsColor";
 
 
 
@@ -37,7 +40,7 @@ const App = () => {
         {
           path: "/",
           index: true,
-          element: <ReactiveRain />
+          element: <DotsColor />
         },
         // {
         //   path: "/",
