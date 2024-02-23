@@ -3,7 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 // import Grille from "./Components/Grille/Grille";
 // import GrilleMultiple from "./Components/GrilleMultiple/GrilleMultiple";
 // import SvgMorph from "./Components/SvgMorph/SvgMorph";
-// import Experimentation from "./Pages/Experimentation";
+// import Experimentation from "./Pages/Experimentation/Experimentation";
 // import BackgroundLights from "./Components/BackgroundLights/BackgroundLights";
 // import BackgroundLights2 from "./Components/BackgroundLights2/BackgroundLights2";
 // import BackgroundBlocks from "./Components/BackgroundBlocks/BackgroundBlocks";

@@ -1,30 +1,46 @@
 import React from "react";
 import "./DotsColor.scss";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import anime from "animejs";
 
 const DotsColor = () => {
-    const container = document.querySelector(".dots-container");
-    const dots = [];
-    const nbDots = 175;
-    useEffect(()=>{
-        
-        function animColors() {
-            const dots = Array.from(document.querySelectorAll(".dot"));
-            console.log(dots);
-            dots.forEach((dot) => {
-                anime({
-                    targets: dot,
-                    backgroundColor: () => `rgb(${anime.random(0, 255)}, ${anime.random(0, 255)}, ${anime.random(0, 255)})`,
-                    duration: 2000,
-                });
+
+    useEffect(() => {
+        const container = document.querySelector(".dots-container");
+
+        function animColors(event) {
+            const dot = event.target;
+            dot.removeEventListener("mouseenter", animColors);
+
+            anime({
+                targets: dot,
+                backgroundColor: () => `rgba(${anime.random(0, 255)}, ${anime.random(0, 255)}, ${anime.random(0, 255)}, 1)`,
+                duration: 1000,
+                complete: () => {
+                    setTimeout(() => {
+                        dot.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                    }, 2000);
+                    dot.addEventListener("mouseenter", animColors);
+                }                
             });
         }
-        
+
+        function resetColor(event) {
+            const dot = event.target;
+            anime({
+                targets: dot,
+                backgroundColor: dot.style.backgroundColor,
+                easing: 'linear',
+                duration: 2000,
+            });
+        }
+
         const styleRandom = () => {
             
-            let dotSize = Math.random(40,200)*200;
-            let posX = Math.floor(Math.random() * window.innerWidth);
-            let posY = Math.floor(Math.random() * window.innerHeight);
+            let dotSize = Math.random() * (200 - 100) + 100;
+            let posX = Math.random() * window.innerWidth;
+            let posY = Math.random() * window.innerHeight;
+            console.log(dotSize, posX, posY);
             
             return{
                 width: `${dotSize}px`,
@@ -33,15 +49,34 @@ const DotsColor = () => {
                 top: `${posY}px`,
             };
         }
+
         
-        for (let i = 1; i <= nbDots; i++) {
-            dots.push(<div className="dot" key={i} style={styleRandom()}></div>);
+        const nbDots = 100;
+        for (let i = 0; i < nbDots; i++) {
+            let dot = document.createElement("div");
+            dot.classList.add("dot");
+            let width = dot.style.width = styleRandom().width;
+            dot.style.height = width;
+            dot.style.left = styleRandom().left;
+            dot.style.top = styleRandom().top;
+            container.appendChild(dot);
+            dot.addEventListener("mouseenter", animColors);
+            dot.addEventListener("mouseleave", resetColor);
         }
-        
-        // container.addEventListener("mousehover", animColors);
-    });
-    
-    return <div className="dots-container">{dots}</div>;
+        return () => {
+            container.innerHTML = '';
+            container.removeEventListener("mouseenter", animColors);
+        };
+
+
+    }, []);
+
+    return (
+        <div className="dots-bigContainer">
+            <div className="dots-container">
+            </div>
+        </div>
+    );
 };
 
 export default DotsColor;
