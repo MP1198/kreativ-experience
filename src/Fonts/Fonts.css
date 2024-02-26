@@ -57,4 +57,22 @@
   src: url("kinan-webfont.woff2") format("woff2"), url("kinan-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+@font-face {
+  font-family: "protest";
+  src: url("protest_demo-webfont.woff2") format("woff2"), url("protest_demo-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rainboho";
+  src: url("rainboho-regular-webfont.woff2") format("woff2"), url("rainboho-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "lostar";
+  src: url("lostar-webfont.woff2") format("woff2"), url("lostar-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }/*# sourceMappingURL=Fonts.css.map */

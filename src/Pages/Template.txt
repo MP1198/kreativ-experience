@@ -2,7 +2,7 @@ import "./Component.scss";
 
 const Component = () => {
   return (
-
+    <div></div>
   );
 };
 

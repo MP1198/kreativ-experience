@@ -1,21 +1,23 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-// import Accueil from "./Pages/Accueil";
-// import Grille from "./Components/Grille/Grille";
-// import GrilleMultiple from "./Components/GrilleMultiple/GrilleMultiple";
-// import SvgMorph from "./Components/SvgMorph/SvgMorph";
-// import Experimentation from "./Pages/Experimentation/Experimentation";
-// import BackgroundLights from "./Components/BackgroundLights/BackgroundLights";
-// import BackgroundLights2 from "./Components/BackgroundLights2/BackgroundLights2";
-// import BackgroundBlocks from "./Components/BackgroundBlocks/BackgroundBlocks";
-// import ReactiveDots from "./Components/ReactiveDots/ReactiveDots";
-// import ReactiveRain from "./Components/ReactiveRain/ReactiveRain";
-// import ClickParticules from "./Components/ClickParticules/ClickParticules";
-// import Perspective from "./Pages/Perspective/Perspective";
-// import DotsColor from "./Components/DotsColor/DotsColor";
+
+// Pages
 import Layout from "./Components/Layout/Layout";
-import "./Fonts/Fonts.scss";
+import Accueil from "./Pages/Accueil/Accueil";
+import LesMots from "./Pages/LesMots/LesMots";
+import Perspective from "./Pages/Perspective/Perspective";
+import Originalite from "./Pages/Originalite/Originalite";
+import Intuition from "./Pages/Intuition/Intuition";
+import Inspiration from "./Pages/Inspiration/Inspiration";
+import Innovation from "./Pages/Innovation/Innovation";
+import Ingeniosite from "./Pages/Ingeniosite/Ingeniosite";
+import Imagination from "./Pages/Imagination/Imagination";
+import Flexibilite from "./Pages/Flexibilite/Flexibilite";
+import Expression from "./Pages/Expression/Expression";
+import Experimentation from "./Pages/Experimentation/Experimentation";
+import Creativite from "./Pages/Creativite/Creativite";
 
 // fonts
+import "./Fonts/Fonts.scss";
 import "./Fonts/curetro-webfont.woff";
 import "./Fonts/curetro-webfont.woff2";
 import "./Fonts/mercy_christole-webfont.woff";
@@ -32,8 +34,6 @@ import "./Fonts/chopin-light-webfont.woff";
 import "./Fonts/chopin-light-webfont.woff2";
 import "./Fonts/aesthetic_romance-webfont.woff";
 import "./Fonts/aesthetic_romance-webfont.woff2";
-import Accueil from "./Pages/Accueil/Accueil";
-import LesMots from "./Pages/LesMots/LesMots";
 
 
 
@@ -52,6 +52,61 @@ const App = () => {
           path: "les-mots",
           index: true,
           element: <LesMots />
+        },
+        {
+          path: "perspective",
+          index: true,
+          element: <Perspective />
+        },
+        {
+          path: "originalite",
+          index: true,
+          element: <Originalite />
+        },
+        {
+          path: "intuition",
+          index: true,
+          element: <Intuition />
+        },
+        {
+          path: "inspiration",
+          index: true,
+          element: <Inspiration />
+        },
+        {
+          path: "innovation",
+          index: true,
+          element: <Innovation />
+        },
+        {
+          path: "ingeniosite",
+          index: true,
+          element: <Ingeniosite />
+        },
+        {
+          path: "imagination",
+          index: true,
+          element: <Imagination />
+        },
+        {
+          path: "flexibilite",
+          index: true,
+          element: <Flexibilite />
+        },
+        {
+          path: "expression",
+          index: true,
+          element: <Expression />
+        },
+        {
+          path: "experimentation",
+          index: true,
+          element: <Experimentation />
+        },
+        {
+          path: "creativite",
+          index: true,
+          element: <Creativite />
         },
       ]
     },

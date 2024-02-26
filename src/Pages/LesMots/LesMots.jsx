@@ -6,7 +6,8 @@ const LesMots = () => {
     const lesMotsAvecStyles = [
         {   mot: "Ingéniosité",
             style: { 
-                fontFamily: "cureto",
+                fontFamily: "curetro",
+                letterSpacing: "8px",
             }
         }, 
         {   mot: "Innovation",
@@ -21,14 +22,16 @@ const LesMots = () => {
             }
         },
         {   mot: "Expression",
-            style: { 
-                fontFamily: "", 
+        style: { 
+                fontFamily: "rainboho", 
+                fontWeight: "100" 
             }
         },
         {   mot: "Inspiration",
             style: { 
-                fontFamily: "", 
-                fontWeight: "200"
+                fontFamily: "lostar", 
+                fontWeight: "200",
+                letterSpacing: "8px",
             }
         },
         {   mot: "Flexibilité",
@@ -62,7 +65,7 @@ const LesMots = () => {
         },
         {   mot: "Créativité",
             style: { 
-                fontFamily: "", 
+                fontFamily: "protest", 
             }
         },
     ];
