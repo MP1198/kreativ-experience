@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="683" height="683" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 683 683">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-4);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="341.5" cy="341.5" fx="341.5" fy="341.5" r="341.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="red" stop-opacity=".06"/>
+      <stop offset=".24" stop-color="#fe0002" stop-opacity=".07"/>
+      <stop offset=".39" stop-color="#fe000c" stop-opacity=".1"/>
+      <stop offset=".5" stop-color="#fd011d" stop-opacity=".16"/>
+      <stop offset=".61" stop-color="#fb0134" stop-opacity=".25"/>
+      <stop offset=".7" stop-color="#f90253" stop-opacity=".35"/>
+      <stop offset=".79" stop-color="#f70479" stop-opacity=".48"/>
+      <stop offset=".87" stop-color="#f405a5" stop-opacity=".64"/>
+      <stop offset=".91" stop-color="#f307c4" stop-opacity=".75"/>
+      <stop offset=".95" stop-color="#f104d8" stop-opacity=".83"/>
+      <stop offset="1" stop-color="#ef00ff"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="297.03" cy="368.44" fx="297.03" fy="368.44" r="244.72" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#683fff" stop-opacity=".06"/>
+      <stop offset=".17" stop-color="#6740ff" stop-opacity=".07"/>
+      <stop offset=".27" stop-color="#6546ff" stop-opacity=".1"/>
+      <stop offset=".35" stop-color="#624fff" stop-opacity=".16"/>
+      <stop offset=".42" stop-color="#5d5dff" stop-opacity=".24"/>
+      <stop offset=".49" stop-color="#576fff" stop-opacity=".34"/>
+      <stop offset=".55" stop-color="#4f84ff" stop-opacity=".46"/>
+      <stop offset=".6" stop-color="#479eff" stop-opacity=".61"/>
+      <stop offset=".65" stop-color="#3fb6ff" stop-opacity=".75"/>
+      <stop offset=".73" stop-color="#3dc5cd" stop-opacity=".74"/>
+      <stop offset=".92" stop-color="#3bec4f" stop-opacity=".71"/>
+      <stop offset="1" stop-color="#3aff15" stop-opacity=".7"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-3" cx="427.98" cy="320.5" fx="427.98" fy="320.5" r="243.64" xlink:href="#radial-gradient-2"/>
+    <radialGradient id="radial-gradient-4" cx="345.29" cy="335" fx="345.29" fy="335" r="249.66" xlink:href="#radial-gradient-2"/>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <circle class="cls-2" cx="341.5" cy="341.5" r="341.5"/>
+    <path class="cls-1" d="M94.79,105.38S-9.5,334.5,229.5,370.5c67.8,10.21,118.86,26.46,157.48,45.6,97.5,48.31,115.64,115.02,123.52,149.4,11,48,11.41,66.01,11.41,66.01"/>
+    <path class="cls-3" d="M423.5,9.5s-288,234-49,270c67.8,10.21,118.86,26.46,157.48,45.6,97.5,48.31,2.64,87.02,10.52,121.4,11,48-21,185-21,185"/>
+    <path class="cls-4" d="M275.5,9.5s-183,296,56,332c67.8,10.21,41.39,47.87,80,67,97.5,48.31,60.12,126.62,68,161,11,48-17,91-17,91"/>
+  </g>
+</svg>

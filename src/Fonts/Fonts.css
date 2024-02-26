@@ -33,4 +33,16 @@
   src: url("unicaone-regular-webfont.woff2") format("woff2"), url("unicaone-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+@font-face {
+  font-family: "aesthetic_romance";
+  src: url("aesthetic_romance-webfont.woff2") format("woff2"), url("aesthetic_romance-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "chopin";
+  src: url("chopin-light-webfont.woff2") format("woff2"), url("chopin-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }/*# sourceMappingURL=Fonts.css.map */

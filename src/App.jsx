@@ -11,6 +11,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 // import ReactiveRain from "./Components/ReactiveRain/ReactiveRain";
 // import ClickParticules from "./Components/ClickParticules/ClickParticules";
 // import Perspective from "./Pages/Perspective/Perspective";
+// import DotsColor from "./Components/DotsColor/DotsColor";
 import Layout from "./Components/Layout/Layout";
 import "./Fonts/Fonts.scss";
 
@@ -27,7 +28,11 @@ import "./Fonts/roblox_font_regular-webfont.woff";
 import "./Fonts/roblox_font_regular-webfont.woff2";
 import "./Fonts/unicaone-regular-webfont.woff";
 import "./Fonts/unicaone-regular-webfont.woff2";
-import DotsColor from "./Components/DotsColor/DotsColor";
+import "./Fonts/chopin-light-webfont.woff";
+import "./Fonts/chopin-light-webfont.woff2";
+import "./Fonts/aesthetic_romance-webfont.woff";
+import "./Fonts/aesthetic_romance-webfont.woff2";
+import Accueil from "./Pages/Accueil/Accueil";
 
 
 
@@ -40,7 +45,7 @@ const App = () => {
         {
           path: "/",
           index: true,
-          element: <DotsColor />
+          element: <Accueil />
         },
         // {
         //   path: "/",

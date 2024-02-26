@@ -1,0 +1,155 @@
+:root{
+    --bg-accueil-gradient1: rgb(16, 16, 16);
+    --bg-accueil-gradient2: rgb(42, 42, 42);
+    --c1: 0,255,251;
+    --c2: 153,0,252;
+    --c3: 253,79,80;
+    --c4: 253,55,200;
+    --c5: 12,143,116;
+    --cInteractive: 0,240,50;
+    --blending: hard-light;
+    --circle-size: 80%;
+}
+
+@keyframes bougerEnCercle {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bougerVertical {
+    0%{
+        transform: translateY(-50%);
+    }
+    50%{
+        transform: translateY(50%);
+    }
+    100%{
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes bougerHorizontal {
+    0%{
+        transform: translateX(-50%)  translateY(-10%);
+    }
+    50%{
+        transform: translateX(50%)  translateY(10%);
+    }
+    100%{
+        transform: translateX(-50%)  translateY(-10%);
+    }
+}
+
+.bg-gradient{
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--bg-accueil-gradient1),var(--bg-accueil-gradient2));
+    
+    svg{
+        display: none;
+    }
+
+    .gradients-container{
+        width: 100%;
+        height: 100%;
+
+
+        .gradient1{
+            position: absolute;
+            top: calc(50% - var(--circle-size)/2);
+            left: calc(50% - var(--circle-size)/2);
+
+            background: radial-gradient(circle at center, rgba(var(--c1),0.8) 0, rgba(var(--c1),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            opacity: 1;
+
+            transform-origin: center center;
+            animation: bougerVertical 30s ease infinite;
+        }
+        .gradient2{
+            position: absolute;
+            top: calc(50% - var(--circle-size)/2);
+            left: calc(50% - var(--circle-size)/2);
+
+            background: radial-gradient(circle at center, rgba(var(--c2),0.8) 0, rgba(var(--c2),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            opacity: 1;
+
+            transform-origin: calc(50% - 400px);
+            animation: bougerEnCercle 20s reverse infinite;
+        }
+        .gradient3{
+            position: absolute;
+            top: calc(50% - var(--circle-size)/2 + 200px);
+            left: calc(50% - var(--circle-size)/2 - 500px);
+
+            background: radial-gradient(circle at center, rgba(var(--c3),0.8) 0, rgba(var(--c3),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            opacity: 1;
+
+            transform-origin: calc(50% - 400px);
+            animation: bougerEnCercle 40s linear infinite;
+        }
+        .gradient4{
+            position: absolute;
+            top: calc(50% - var(--circle-size)/2);
+            left: calc(50% - var(--circle-size)/2);
+
+            background: radial-gradient(circle at center, rgba(var(--c4),0.8) 0, rgba(var(--c4),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            opacity: 0.7;
+
+            transform-origin: calc(50% - 200px);
+            animation: bougerHorizontal 40s ease infinite;
+        }
+        .gradient5{
+            position: absolute;
+            top: calc(50% - var(--circle-size));
+            left: calc(50% - var(--circle-size));
+
+            background: radial-gradient(circle at center, rgba(var(--c5),0.8) 0, rgba(var(--c5),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: calc(var(--circle-size) * 2);
+            height: calc(var(--circle-size) * 2);
+            opacity: 1;
+
+            transform-origin: calc(50% - 800px) calc(50% + 200px);
+            animation: bougerEnCercle 20s ease infinite;
+        }
+
+        .interactif{
+            position: absolute;
+            top: -50%;
+            left: -50%;
+
+            background: radial-gradient(circle at center, rgba(var(--cInteractive),0.8) 0, rgba(var(--cInteractive),0)50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+
+        }
+    }
+}
