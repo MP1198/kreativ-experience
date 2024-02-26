@@ -33,6 +33,7 @@ import "./Fonts/chopin-light-webfont.woff2";
 import "./Fonts/aesthetic_romance-webfont.woff";
 import "./Fonts/aesthetic_romance-webfont.woff2";
 import Accueil from "./Pages/Accueil/Accueil";
+import LesMots from "./Pages/LesMots/LesMots";
 
 
 
@@ -47,11 +48,11 @@ const App = () => {
           index: true,
           element: <Accueil />
         },
-        // {
-        //   path: "/",
-        //   index: true,
-        //   element: <Accueil />
-        // },
+        {
+          path: "les-mots",
+          index: true,
+          element: <LesMots />
+        },
       ]
     },
     {

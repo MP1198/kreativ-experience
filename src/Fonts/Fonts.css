@@ -29,7 +29,7 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "unica_oneregular";
+  font-family: "unicaone";
   src: url("unicaone-regular-webfont.woff2") format("woff2"), url("unicaone-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -43,6 +43,18 @@
 @font-face {
   font-family: "chopin";
   src: url("chopin-light-webfont.woff2") format("woff2"), url("chopin-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "overwave";
+  src: url("overwave-webfont.woff2") format("woff2"), url("overwave-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "kinan";
+  src: url("kinan-webfont.woff2") format("woff2"), url("kinan-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }/*# sourceMappingURL=Fonts.css.map */

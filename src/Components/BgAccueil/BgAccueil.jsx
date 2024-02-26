@@ -1,33 +1,59 @@
 
 import "./BgAccueil.scss";
-// tuto 10:38
+import React, { useEffect, useState, useRef} from "react";
+
 const BgAccueil = () => {
-    let curX = 0;
-    let curY = 0;
-    let tgX = 0;
-    let tgY = 0;
-    const cercleInteractif = document.querySelector(".interactif");
+    const [curX, setCurX] = useState(0);
+    const [curY, setCurY] = useState(0);
+    const interactifRef = useRef(null);
+    const lerpSpeed = 2;
+  
+    useEffect(() => {
 
-    function bouger (){
-        curX +=(tgX-curX)/20;
-        curY +=(tgY-curY)/20;
-        cercleInteractif.computedStyleMap.transform = 'translate(${Math.round(curX)})px,${Math.round(curY)})px';
-    }
+      function handleMouseMove(e) {
+        setCurX(e.clientX);
+        setCurY(e.clientY);
 
-    window.addEventListener('mousemove', (e)=>{
-        tgX = e.clientX;
-        tgY = e.clientY;
-    });
+        const interactif = interactifRef.current;
+
+        const dx = e.clientX - curX;
+        const dy = e.clientY - curY;
+
+        const newX = curX + dx / lerpSpeed;
+        const newY = curY + dy / lerpSpeed;
+
+        setCurX(newX);
+        setCurY(newY);
+
+        if (interactif) {
+          interactif.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        }
+      }
+  
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [curX, curY]);
 
   return (
     <div className="bg-gradient">
+        
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+
         <div className="gradients-container">
             <div className="gradient1"></div>
             <div className="gradient2"></div>
             <div className="gradient3"></div>
             <div className="gradient4"></div>
             <div className="gradient5"></div>
-            <div className="interactif"></div>
+            <div className="interactif" ref={interactifRef}></div>
         </div>
     </div>
   );

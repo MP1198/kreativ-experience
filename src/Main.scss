@@ -13,3 +13,10 @@
     overflow-x: hidden !important;
     overflow-y: hidden !important;
 }
+
+body{
+    background: linear-gradient(180deg, var(--bg-accueil-gradient1), var(--bg-accueil-gradient2));
+    height: 100vh;
+    width: 100%;
+    overflow: hidden !important;
+}
