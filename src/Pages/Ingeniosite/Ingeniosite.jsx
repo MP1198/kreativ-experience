@@ -1,8 +1,11 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Ingeniosite.scss";
 
-const Ingeniosite = () => {
+const Ingeniosite = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

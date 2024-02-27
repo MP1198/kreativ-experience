@@ -1,8 +1,11 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Originalite.scss";
 
-const Originalite = () => {
+const Originalite = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

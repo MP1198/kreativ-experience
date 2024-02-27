@@ -1,8 +1,11 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Inspiration.scss";
 
-const Inspiration = () => {
+const Inspiration = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

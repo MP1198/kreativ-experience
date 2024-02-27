@@ -1,6 +1,5 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { SpacebarProvider } from './Components/ContextSpacebar/ContextSpacebar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 // Pages
 import Layout from "./Components/Layout/Layout";
@@ -17,6 +16,8 @@ import Flexibilite from "./Pages/Flexibilite/Flexibilite";
 import Expression from "./Pages/Expression/Expression";
 import Experimentation from "./Pages/Experimentation/Experimentation";
 import Creativite from "./Pages/Creativite/Creativite";
+
+import ChangePage from "./Components/ChangePage/ChangePage";
 
 // fonts
 import "./Fonts/Fonts.scss";
@@ -40,6 +41,32 @@ import "./Fonts/aesthetic_romance-webfont.woff2";
 
 
 const App = () => {
+
+    const [isSpaceDown, setIsSpaceDown] = useState(false);
+
+    useEffect(() => {
+      const handleKeyDown = (e) => {
+        if (e.key === " ") {
+            setIsSpaceDown(true);
+        }
+      }
+
+      const handleKeyUp = (e) => {
+        if (e.key === " ") {
+            setIsSpaceDown(false);
+        }
+      }
+
+      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener("keyup", handleKeyUp);
+
+      return () => {
+          document.removeEventListener("keydown", handleKeyDown);
+          document.removeEventListener("keyup", handleKeyUp);
+      }
+  
+  }, [isSpaceDown]);
+
   const routes = [
     {
       path: "/",
@@ -48,67 +75,67 @@ const App = () => {
         {
           path: "/",
           index: true,
-          element: <Accueil />
+          element: <Accueil isDown={isSpaceDown}/>
         },
         {
           path: "les-mots",
           index: true,
-          element: <LesMots />
+          element: <LesMots  isDown={isSpaceDown}/>
         },
         {
           path: "perspective",
           index: true,
-          element: <Perspective />
+          element: <Perspective isDown={isSpaceDown}/>
         },
         {
           path: "originalite",
           index: true,
-          element: <Originalite />
+          element: <Originalite isDown={isSpaceDown}/>
         },
         {
           path: "intuition",
           index: true,
-          element: <Intuition />
+          element: <Intuition isDown={isSpaceDown}/>
         },
         {
           path: "inspiration",
           index: true,
-          element: <Inspiration />
+          element: <Inspiration isDown={isSpaceDown}/>
         },
         {
           path: "innovation",
           index: true,
-          element: <Innovation />
+          element: <Innovation isDown={isSpaceDown}/>
         },
         {
           path: "ingeniosite",
           index: true,
-          element: <Ingeniosite />
+          element: <Ingeniosite isDown={isSpaceDown}/>
         },
         {
           path: "imagination",
           index: true,
-          element: <Imagination />
+          element: <Imagination isDown={isSpaceDown}/>
         },
         {
           path: "flexibilite",
           index: true,
-          element: <Flexibilite />
+          element: <Flexibilite isDown={isSpaceDown}/>
         },
         {
           path: "expression",
           index: true,
-          element: <Expression />
+          element: <Expression isDown={isSpaceDown}/>
         },
         {
           path: "experimentation",
           index: true,
-          element: <Experimentation />
+          element: <Experimentation isDown={isSpaceDown}/>
         },
         {
           path: "creativite",
           index: true,
-          element: <Creativite />
+          element: <Creativite isDown={isSpaceDown}/>
         },
       ]
     },
@@ -119,9 +146,7 @@ const App = () => {
   ];
 
   return (
-  <SpacebarProvider>
-    <RouterProvider router={createBrowserRouter(routes)} />;
-  </SpacebarProvider>
+    <RouterProvider router={createBrowserRouter(routes)} />
   
   );
 };

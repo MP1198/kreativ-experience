@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import anime from "animejs";
 import "./Experimentation.scss";
+import ChangePage from "../../Components/ChangePage/ChangePage";
 
 
-const Experimentation = () => {
+const Experimentation = ({isDown}) => {
     
     useEffect(() => {
         const h1 = document.querySelector("h1.experimentation");
@@ -79,6 +80,7 @@ const Experimentation = () => {
 
     return (
         <div className="experimentation-container">
+            <ChangePage isDown={isDown}/>
             <h1 className="experimentation">
                 <p className="experimentation-lettres">E</p>
                 <p className="experimentation-lettres">x</p>

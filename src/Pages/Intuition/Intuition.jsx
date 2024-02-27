@@ -1,8 +1,11 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Intuition.scss";
 
-const Intuition = () => {
+const Intuition = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

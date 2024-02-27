@@ -1,8 +1,11 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Imagination.scss";
 
-const Imagination = () => {
+const Imagination = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

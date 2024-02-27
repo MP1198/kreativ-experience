@@ -1,19 +1,20 @@
-import React, { createContext, useContext, useState } from "react";
+// import React, { createContext, useContext, useState } from "react";
+// // import React from 'react';
 
-const SpacebarContext = createContext();
+// const SpacebarProvider = ({ children }) => {
+//   const SpacebarContext = React.createContext();
+//   const [isSpacebarPressed, setIsSpacebarPressed] = useState(false);
+//   const useSpacebar = () => useContext(SpacebarContext);
 
-export const useSpacebar = () => useContext(SpacebarContext);
+//   const setSpacebarPressed = (value) => {
+//     setIsSpacebarPressed(value);
+//   };
 
-export const SpacebarProvider = ({ children }) => {
-  const [isSpacebarPressed, setIsSpacebarPressed] = useState(false);
+//   return (
+//     <SpacebarContext.Provider value={{ isSpacebarPressed, setSpacebarPressed }}>
+//       {children}
+//     </SpacebarContext.Provider>
+//   ); 
+// };
 
-  const setSpacebarPressed = (value) => {
-    setIsSpacebarPressed(value);
-  };
-
-  return (
-    <SpacebarContext.Provider value={{ isSpacebarPressed, setSpacebarPressed }}>
-      {children}
-    </SpacebarContext.Provider>
-  );
-};
+// export default SpacebarContext;

@@ -1,8 +1,12 @@
+import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Flexibilite.scss";
 
-const Flexibilite = () => {
+
+const Flexibilite = ({isDown}) => {
   return (
-    <div></div>
+    <div>
+      <ChangePage isDown={isDown}/>
+    </div>
   );
 };
 

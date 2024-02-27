@@ -2,7 +2,7 @@ import "./Accueil.scss";
 import BgAccueil from "../../Components/BgAccueil/BgAccueil";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 
-const Accueil = () => {
+const Accueil = ({isDown}) => {
   return (
     <div className="accueil-page">
         <svg>
@@ -19,7 +19,7 @@ const Accueil = () => {
             <h1 className="accueil-titre">Kreativ</h1>
             <h2 className="accueil-slogan">Exprérience Intéractive</h2>
         </div>
-        <ChangePage/>
+        <ChangePage isDown={isDown}/>
     </div>
   );
 };

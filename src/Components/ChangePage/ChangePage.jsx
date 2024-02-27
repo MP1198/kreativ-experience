@@ -3,22 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import "./ChangePage.scss";
 import anime from "animejs";
 
-const ChangePage = () => {
+const ChangePage = ({ isDown }) => {
     const loadingBar = useRef(null);
-    const [isSpacebarPressed, setIsSpacebarPressed] = useState(false);
     const navigation = useNavigate();
 
-    const handleKeyDown = (e) => {
-        if (e.key === " ") {
-            setIsSpacebarPressed(true);
-        }
-    }
-
-    const handleKeyUp = (e) => {
-        if (e.key === " ") {
-            setIsSpacebarPressed(false);
-        }
-    }
     useEffect(() => {
 
         const animationLoadingOn = () => {
@@ -46,23 +34,15 @@ const ChangePage = () => {
             })
         };
 
-        if (isSpacebarPressed) {
+        if (isDown) { 
             animationLoadingOn();
         } else {
             animationLoadingOff();
         }
-
-        document.addEventListener("keydown", handleKeyDown);
-        document.addEventListener("keyup", handleKeyUp);
-
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            document.removeEventListener("keyup", handleKeyUp);
-        }
-    }, [isSpacebarPressed, navigation]);
+    }, [navigation]);
 
   return (
-        <div className="loading-bar" ref={loadingBar}></div>
+        <div className="loading-bar" ref={loadingBar} ></div>
   );
 };
 
