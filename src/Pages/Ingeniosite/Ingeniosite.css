@@ -1,4 +1,4 @@
-.innovation-container {
+.ingeniosite-container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -7,8 +7,9 @@
   justify-content: center;
 }
 
-.innovation-titre {
-  font-family: "unicaone";
+.ingeniosite-titre {
+  font-family: "curetro";
   font-size: 200px;
+  letter-spacing: 8px;
   color: white;
-}/*# sourceMappingURL=Innovation.css.map */
+}/*# sourceMappingURL=Ingeniosite.css.map */

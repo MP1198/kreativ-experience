@@ -3,8 +3,9 @@ import "./Ingeniosite.scss";
 
 const Ingeniosite = ({isDown}) => {
   return (
-    <div>
+    <div className="ingeniosite-container">
       <ChangePage isDown={isDown}/>
+      <h1 className="ingeniosite-titre">Ingeniosité</h1>
     </div>
   );
 };

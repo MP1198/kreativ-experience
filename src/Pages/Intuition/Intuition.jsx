@@ -3,8 +3,9 @@ import "./Intuition.scss";
 
 const Intuition = ({isDown}) => {
   return (
-    <div>
+    <div className="intuition-container">
       <ChangePage isDown={isDown}/>
+      <h1 className="intuition-titre">Intuition</h1>
     </div>
   );
 };

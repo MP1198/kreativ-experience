@@ -3,8 +3,9 @@ import "./Inspiration.scss";
 
 const Inspiration = ({isDown}) => {
   return (
-    <div>
+    <div className="inspiration-container">
       <ChangePage isDown={isDown}/>
+      <h1 className="inspiration-titre">Inspiration</h1>
     </div>
   );
 };

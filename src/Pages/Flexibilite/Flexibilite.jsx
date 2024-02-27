@@ -4,8 +4,9 @@ import "./Flexibilite.scss";
 
 const Flexibilite = ({isDown}) => {
   return (
-    <div>
+    <div className="flexibilite-container">
       <ChangePage isDown={isDown}/>
+      <h1 className="flexibilite-titre">Flexibilité</h1>
     </div>
   );
 };

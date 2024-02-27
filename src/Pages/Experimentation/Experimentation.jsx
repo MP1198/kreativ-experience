@@ -7,7 +7,7 @@ import ChangePage from "../../Components/ChangePage/ChangePage";
 const Experimentation = ({isDown}) => {
     
     useEffect(() => {
-        const h1 = document.querySelector("h1.experimentation");
+        const h1 = document.querySelector("h1.experimentation-titre");
         const lettres = Array.from(document.querySelectorAll("h1 .experimentation-lettres"));
 
         let estEnAnimation = false;
@@ -81,7 +81,7 @@ const Experimentation = ({isDown}) => {
     return (
         <div className="experimentation-container">
             <ChangePage isDown={isDown}/>
-            <h1 className="experimentation">
+            <h1 className="experimentation-titre">
                 <p className="experimentation-lettres">E</p>
                 <p className="experimentation-lettres">x</p>
                 <p className="experimentation-lettres">p</p>

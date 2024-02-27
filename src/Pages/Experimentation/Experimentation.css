@@ -6,7 +6,7 @@
   align-items: center;
   height: 100vh;
 }
-.experimentation-container .experimentation {
+.experimentation-container .experimentation-titre {
   position: relative;
   transform-style: preserve-3d;
   letter-spacing: 5px;
@@ -14,10 +14,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: white;
 }
-.experimentation-container .experimentation .experimentation-lettres {
+.experimentation-container .experimentation-titre .experimentation-lettres {
   font-family: "retrolight";
-  font-size: 4em;
-  font-weight: 100;
+  font-size: 125px;
+  font-weight: 200;
   pointer-events: none;
 }/*# sourceMappingURL=Experimentation.css.map */

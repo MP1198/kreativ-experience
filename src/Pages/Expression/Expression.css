@@ -1,4 +1,4 @@
-.innovation-container {
+.expression-container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -7,8 +7,9 @@
   justify-content: center;
 }
 
-.innovation-titre {
-  font-family: "unicaone";
+.expression-titre {
+  font-family: "rainboho";
   font-size: 200px;
   color: white;
-}/*# sourceMappingURL=Innovation.css.map */
+  font-weight: 100;
+}/*# sourceMappingURL=Expression.css.map */

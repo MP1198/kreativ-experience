@@ -1,0 +1,15 @@
+.intuition-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.intuition-titre {
+  font-family: "kinan";
+  font-size: 175px;
+  font-weight: 200;
+  color: white;
+}/*# sourceMappingURL=Intuition.css.map */

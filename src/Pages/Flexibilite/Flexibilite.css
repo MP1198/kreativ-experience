@@ -1,4 +1,4 @@
-.innovation-container {
+.flexibilite-container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -7,8 +7,8 @@
   justify-content: center;
 }
 
-.innovation-titre {
-  font-family: "unicaone";
+.flexibilite-titre {
+  font-family: "overwave";
   font-size: 200px;
   color: white;
-}/*# sourceMappingURL=Innovation.css.map */
+}/*# sourceMappingURL=Flexibilite.css.map */

@@ -4,12 +4,10 @@ import "./Perspective.scss";
 const Perspective = ({isDown}) => {
     
   return (
-    <>
-    <ChangePage isDown={isDown}/>
-    <div className="perspective">
-      <h1 className="perspective-texte">Perspective</h1>
+    <div className="perspective-container">
+      <ChangePage isDown={isDown}/>
+      <h1 className="perspective-titre">Perspective</h1>
     </div>
-    </>
   );
 };
 

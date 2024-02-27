@@ -3,10 +3,10 @@ import "./Creativite.scss";
 
 const Creativite = ({isDown}) => {
   return (
-    <>
-    <ChangePage isDown={isDown}/>
-    <div></div>
-    </>
+    <div className="creativite-container">
+      <ChangePage isDown={isDown}/>
+      <h1 className="creativite-titre">Créativité</h1>
+    </div>
   );
 };
 

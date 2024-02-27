@@ -3,8 +3,9 @@ import "./Originalite.scss";
 
 const Originalite = ({isDown}) => {
   return (
-    <div>
+    <div className="originalite-container">
       <ChangePage isDown={isDown}/>
+      <h1 className="originalite-titre">Originalité</h1>
     </div>
   );
 };
