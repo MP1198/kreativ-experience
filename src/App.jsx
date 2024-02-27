@@ -1,4 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { SpacebarProvider } from './Components/ContextSpacebar/ContextSpacebar';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // Pages
 import Layout from "./Components/Layout/Layout";
@@ -116,7 +118,12 @@ const App = () => {
     }
   ];
 
-  return <RouterProvider router={createBrowserRouter(routes)} />;
+  return (
+  <SpacebarProvider>
+    <RouterProvider router={createBrowserRouter(routes)} />;
+  </SpacebarProvider>
+  
+  );
 };
 
 export default App;
