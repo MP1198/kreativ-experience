@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 
 const ClickParticules = () => {
-  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
   let pointerX = 0;
   let pointerY = 0;
   const numberOfParticules = 30;
@@ -12,15 +12,15 @@ const ClickParticules = () => {
   const colors = ["#0f0", "#ff0", "#f00", "#f0f","#0ff"];
 
   useEffect(() => {
-    const canvasEl = canvasRef.current;
-    const ctx = canvasEl.getContext("2d");
+    const container = containerRef.current;
+    const ctx = container.getContext("2d");
 
-    function setCanvasSize() {
-      canvasEl.width = window.innerWidth * 2;
-      canvasEl.height = window.innerHeight * 2;
-      canvasEl.style.width = window.innerWidth + "px";
-      canvasEl.style.height = window.innerHeight + "px";
-      canvasEl.getContext("2d").scale(2, 2);
+    function setContainerSize() {
+      container.width = window.innerWidth * 2;
+      container.height = window.innerHeight * 2;
+      container.style.width = window.innerWidth + "px";
+      container.style.height = window.innerHeight + "px";
+      container.getContext("2d").scale(2, 2);
     }
 
     function updateCoords(e) {
@@ -124,7 +124,7 @@ const ClickParticules = () => {
     const render = anime({
       duration: Infinity,
       update: function () {
-        ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        ctx.clearRect(0, 0, container.width, container.height);
       },
     });
 
@@ -145,8 +145,8 @@ const ClickParticules = () => {
     }
 
     autoClick();
-    setCanvasSize();
-    window.addEventListener("resize", setCanvasSize);
+    setContainerSize();
+    window.addEventListener("resize", setContainerSize);
 
     return () => {
       document.removeEventListener(tap, function (e) {
@@ -155,11 +155,11 @@ const ClickParticules = () => {
         updateCoords(e);
         animateParticules(pointerX, pointerY);
       });
-      window.removeEventListener("resize", setCanvasSize);
+      window.removeEventListener("resize", setContainerSize);
     };
   }, []);
 
-  return <canvas className="fireworks" ref={canvasRef}></canvas>;
+  return <div className="particules-container" ref={containerRef}></div>;
 };
 
 export default ClickParticules;
