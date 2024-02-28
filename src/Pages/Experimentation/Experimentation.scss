@@ -21,4 +21,19 @@
             pointer-events: none;
         }
     }
+
+    .experimentation-cible{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        background-color: red;
+    }
+    .experimentation-tire{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: blue;
+    }
 }
