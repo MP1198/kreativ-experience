@@ -15,6 +15,10 @@
   align-items: center;
   cursor: pointer;
   color: white;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .experimentation-container .experimentation-titre .experimentation-lettres {
   font-family: "retrolight";
@@ -22,7 +26,66 @@
   font-weight: 200;
   pointer-events: none;
 }
+.experimentation-container .experimentation-cible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: red;
+}
+.experimentation-container .experimentation-tire {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.experimentation-container .experimentation-tire span {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: animTire 5s linear infinite;
+  transform-origin: 15px;
+  mix-blend-mode: lighten;
+  filter: blur(2px);
+}
+.experimentation-container .experimentation-tire span:nth-child(even) {
+  animation-direction: reverse;
+}
+.experimentation-container .experimentation-tire span:nth-child(1) {
+  background-color: #03a1d9;
+  width: 35px;
+  height: 35px;
+  animation-duration: 4s;
+}
+.experimentation-container .experimentation-tire span:nth-child(2) {
+  background-color: #fbad04;
+  width: 34px;
+  height: 34px;
+  animation-duration: 5s;
+}
+.experimentation-container .experimentation-tire span:nth-child(3) {
+  background-color: #f7036d;
+  width: 33px;
+  height: 33px;
+  animation-duration: 7.5s;
+}
+.experimentation-container .experimentation-tire span:nth-child(4) {
+  background-color: #93ff16;
+  width: 30px;
+  height: 30px;
+  animation-duration: 10s;
+}
 
+@keyframes animTire {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
 *,
 *::before,
 *::after {

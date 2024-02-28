@@ -36,7 +36,6 @@ import "./Fonts/chopin-light-webfont.woff";
 import "./Fonts/chopin-light-webfont.woff2";
 import "./Fonts/aesthetic_romance-webfont.woff";
 import "./Fonts/aesthetic_romance-webfont.woff2";
-import Experimentation2 from "./Pages/Experimentation/Experimentation2";
 
 
 
@@ -131,11 +130,6 @@ const App = () => {
           path: "experimentation",
           index: true,
           element: <Experimentation isDown={isSpaceDown}/>
-        },
-        {
-          path: "experimentation2",
-          index: true,
-          element: <Experimentation2 isDown={isSpaceDown}/>
         },
         {
           path: "creativite",

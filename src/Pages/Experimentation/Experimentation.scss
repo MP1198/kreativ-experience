@@ -1,11 +1,14 @@
-.experimentation-container{
+.experimentation-container {
     text-align: center;
     perspective: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    .experimentation-titre{
+    position: relative;
+    cursor: crosshair;
+
+    .experimentation-titre {
         position: relative;
         transform-style: preserve-3d;
         letter-spacing: 5px;
@@ -14,7 +17,10 @@
         align-items: center;
         cursor: pointer;
         color: white;
-        .experimentation-lettres{
+        pointer-events: none;
+        user-select: none;
+
+        .experimentation-lettres {
             font-family: "retrolight";
             font-size: 125px;
             font-weight: 200;
@@ -22,18 +28,70 @@
         }
     }
 
-    .experimentation-cible{
+    .experimentation-cible {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 25px;
-        height: 25px;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
         background-color: red;
+        filter: blur(5px);
+        z-index: -10000;
+        opacity: 0;
+        
     }
-    .experimentation-tire{
+}
+
+.experimentation-tire {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    span {
         position: absolute;
-        width: 25px;
-        height: 25px;
-        background-color: blue;
+        border-radius: 50%;
+        animation: animTire 5s linear infinite;
+        transform-origin: 15px;
+        mix-blend-mode: darken;
+        filter: blur(2px);
+
+        &:nth-child(even) {
+            animation-direction: reverse;
+        }
+
+        &:nth-child(1) {
+            width: calc(50px - 9px);
+            height: calc(50px - 9px);
+            animation-duration: 4s;
+        }
+
+        &:nth-child(2) {
+            width: calc(50px - 10px);
+            height: calc(50px - 10px);
+            animation-duration: 5s;
+        }
+
+        &:nth-child(3) {
+            width: calc(50px - 11px);
+            height: calc(50px - 11px);
+            animation-duration: 7.5s;
+        }
+
+        &:nth-child(4) {
+            width: calc(50px - 14px);
+            height: calc(50px - 14px);
+            animation-duration: 10s;
+        }
+    }
+}
+
+@keyframes animTire {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
     }
 }
