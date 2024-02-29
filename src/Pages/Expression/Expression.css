@@ -19,28 +19,60 @@
   position: relative;
 }
 
+.expression-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
 .expression-textarea {
   width: 700px;
   height: 200px;
   resize: none;
+  font-size: 16px;
+}
+
+.expression-btn {
+  border: 2px solid white;
+}
+
+.expression-textarea,
+.expression-btn,
+.expression-auteur {
   background-color: rgba(255, 255, 255, 0.185);
   border: none;
-  padding: 20px;
+  padding: 10px 20px;
   font-size: 16px;
   color: white;
   -webkit-backdrop-filter: blur(9px);
           backdrop-filter: blur(9px);
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.58);
-  border-radius: 15px;
+  border-radius: 10px;
+  font-family: "curetro";
+  font-weight: 300;
+  letter-spacing: 3px;
 }
-.expression-textarea:focus {
+.expression-textarea:focus,
+.expression-btn:focus,
+.expression-auteur:focus {
   outline: none;
+  border: 2px solid white;
 }
-.expression-textarea:focus::-moz-placeholder {
+.expression-textarea:focus::-moz-placeholder, .expression-btn:focus::-moz-placeholder, .expression-auteur:focus::-moz-placeholder {
   color: white;
 }
-.expression-textarea:focus::placeholder {
+.expression-textarea:focus::placeholder,
+.expression-btn:focus::placeholder,
+.expression-auteur:focus::placeholder {
   color: white;
+}
+
+.expression-auteur {
+  width: 700px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .text-cercle {
@@ -51,23 +83,44 @@
   border-radius: 50%;
   z-index: -1;
 }
-.text-cercle:nth-child(1) {
-  top: 0;
-  left: 0;
+.text-cercle:nth-of-type(1) {
+  top: -23px;
+  left: -36px;
 }
-.text-cercle:nth-child(2) {
-  top: 0;
-  left: 0;
+.text-cercle:nth-of-type(2) {
+  top: -29px;
+  left: 461px;
 }
-.text-cercle:nth-child(3) {
-  top: 0;
-  left: 0;
+.text-cercle:nth-of-type(3) {
+  top: 137px;
+  left: 171px;
 }
-.text-cercle:nth-child(4) {
-  bottom: -31px;
-  right: -31px;
+.text-cercle:nth-of-type(4) {
+  bottom: 24px;
+  right: -40px;
 }
-.text-cercle:nth-child(5) {
-  top: 0;
-  left: 0;
+
+.citations-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -500;
+}
+
+.citations-text {
+  font-family: "curetro";
+  font-size: 1em;
+  color: white;
+  position: absolute;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 3px;
+  line-height: 1.5em;
+  width: 400px;
+  height: 100px;
+}
+.citations-text span {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }/*# sourceMappingURL=Expression.css.map */

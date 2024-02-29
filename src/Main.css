@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
+  cursor: crosshair;
 }
 .experimentation-container .experimentation-titre {
   position: relative;
@@ -28,53 +30,51 @@
 }
 .experimentation-container .experimentation-cible {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 25px;
-  height: 25px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
   background-color: red;
+  filter: blur(5px);
+  z-index: -10000;
+  opacity: 0;
 }
-.experimentation-container .experimentation-tire {
+
+.experimentation-tire {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
-.experimentation-container .experimentation-tire span {
+.experimentation-tire span {
   position: absolute;
-  background-color: white;
   border-radius: 50%;
   animation: animTire 5s linear infinite;
   transform-origin: 15px;
-  mix-blend-mode: lighten;
+  mix-blend-mode: darken;
   filter: blur(2px);
 }
-.experimentation-container .experimentation-tire span:nth-child(even) {
+.experimentation-tire span:nth-child(even) {
   animation-direction: reverse;
 }
-.experimentation-container .experimentation-tire span:nth-child(1) {
-  background-color: #03a1d9;
-  width: 35px;
-  height: 35px;
+.experimentation-tire span:nth-child(1) {
+  width: 41px;
+  height: 41px;
   animation-duration: 4s;
 }
-.experimentation-container .experimentation-tire span:nth-child(2) {
-  background-color: #fbad04;
-  width: 34px;
-  height: 34px;
+.experimentation-tire span:nth-child(2) {
+  width: 40px;
+  height: 40px;
   animation-duration: 5s;
 }
-.experimentation-container .experimentation-tire span:nth-child(3) {
-  background-color: #f7036d;
-  width: 33px;
-  height: 33px;
+.experimentation-tire span:nth-child(3) {
+  width: 39px;
+  height: 39px;
   animation-duration: 7.5s;
 }
-.experimentation-container .experimentation-tire span:nth-child(4) {
-  background-color: #93ff16;
-  width: 30px;
-  height: 30px;
+.experimentation-tire span:nth-child(4) {
+  width: 36px;
+  height: 36px;
   animation-duration: 10s;
 }
 
