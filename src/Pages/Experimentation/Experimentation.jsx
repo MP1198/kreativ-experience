@@ -22,7 +22,6 @@ const Experimentation2 = ({ isDown }) => {
     const cibleRef = useRef(null);
     const composantsRefs = useRef([]);
     const timeoutExplosion = useRef();
-    let detectClick = false;
 
     useEffect(() => {
         const lettres = Array.from(document.querySelectorAll("h1 .experimentation-lettres"));

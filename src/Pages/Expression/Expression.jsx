@@ -4,14 +4,16 @@ import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Expression.scss";
 import citations from "./citations.json";
 
-//  je suis rendu a afficher le message envoyer dans l'écran
-//  a la place de la citation
+//  aPRES LES TESTS - NE PAS POUVOIR CLIQUER SI UN CHAMP DU FORMULAIRE EST VIDE
+// MESSAGE ERREUR
 
 // Je me demande si j'affiches des quotes jusqu'à ce que
 // l'écran soit rempli de messages
 
 const Expression = ({ isDown }) => {
   const [isTextareaFocused, setIsTextareaFocused] = useState(false);
+
+
 
   useEffect(() => {
     function animCercle() {
@@ -70,11 +72,29 @@ const Expression = ({ isDown }) => {
   const [quoteStyle, setQuoteStyle] = useState({});
 
   useEffect(() => {
-    if (!isVisible) {
+    if (!isVisible && newAuteur === "" && newQuote === "") {
       setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * citations.length);
         setRandomQuote(citations[randomIndex].citation);
         setAuteur(citations[randomIndex].auteur);
+
+        const randomPosition =
+          positions[Math.floor(Math.random() * positions.length)];
+        setQuotePosition(randomPosition);
+
+        const randomColor =
+          couleurs[Math.floor(Math.random() * couleurs.length)];
+        setQuoteCouleur(randomColor);
+
+        setQuoteStyle({ ...randomPosition, ...randomColor });
+
+        animQuote();
+        setIsVisible(true);
+      }, 2000);
+    }else if (!isVisible && newAuteur != "" && newQuote != "") {
+      setTimeout(() => {
+        setRandomQuote(newQuote);
+        setAuteur(newAuteur);
 
         const randomPosition =
           positions[Math.floor(Math.random() * positions.length)];
@@ -114,37 +134,23 @@ const Expression = ({ isDown }) => {
       easing: "easeInOutQuad",
     });
   }
+  
+  const [newQuote, setNewQuote] = useState('');
+  const [newAuteur, setNewAuteur] = useState('');
 
-  const buttonRef = useRef(null);
-  const [textareaValue, setTextareaValue] = useState("");
-  const [auteurValue, setAuteurValue] = useState("");
   const handleButtonClick = () => {
-    const textarea = document.querySelector(".expression-textarea");
-    const text = textarea.value;
-
-    const auteur = document.querySelector(".expression-auteur");
-    const auteurVal = auteur.value;
-    
-    setTextareaValue(text);
-    setAuteurValue(auteurVal);
-    
-    textarea.value = "";
-    auteur.value = "";
+    const newCitation = { citation: newQuote, auteur: newAuteur };
+    setRandomQuote(newCitation.citation);
+    setAuteur(newCitation.auteur);
+    setIsVisible(true);
+    const randomColor =
+    couleurs[Math.floor(Math.random() * couleurs.length)];
+    setQuoteCouleur(randomColor);
   };
-
-  useEffect(() => {
-    if (buttonRef.current) {
-      buttonRef.current.addEventListener("click", handleButtonClick);
-    }
-    return () => {
-      if (buttonRef.current) {
-        buttonRef.current.removeEventListener("click", handleButtonClick);
-      }
-    };
-  }, []);
 
   return (
     <div className="expression-container">
+
       <ChangePage isDown={isDown} />
       <h1 className="expression-titre">Expression</h1>
 
@@ -160,6 +166,8 @@ const Expression = ({ isDown }) => {
             placeholder="Laissez votre créativité s'exprimer ici."
             onFocus={() => setIsTextareaFocused(true)}
             onBlur={() => setIsTextareaFocused(false)}
+            onChange={e => setNewQuote(e.target.value)}
+            value={newQuote}
           />
           <input
             className="expression-auteur"
@@ -167,12 +175,18 @@ const Expression = ({ isDown }) => {
             placeholder="Auteur"
             onFocus={() => setIsTextareaFocused(true)}
             onBlur={() => setIsTextareaFocused(false)}
+            onChange={e => setNewAuteur(e.target.value)}
+            value={newAuteur}
           />
           <input
             className="expression-btn"
             type="button"
-            value="Ajouter"
-            ref={buttonRef}
+            value="Ajouter une citation"
+            onClick={() => {
+              handleButtonClick();
+              setNewQuote('');
+              setNewAuteur('');
+            }}
           />
         </form>
         <div className="text-cercle"></div>
