@@ -14,19 +14,19 @@ const LesMots = ({isDown}) => {
             },
             path: "/ingeniosite",
         }, 
-        {   mot: "Innovation",
-            style: { 
-                fontFamily: "unicaone", 
-            },
-            path: "/innovation",
-        },
-        {   mot: "Imagination",
-            style: { 
-                fontFamily: "mercy_christole",
-                fontWeight: "300" 
-            },
-            path: "/imagination",
-        },
+        // {   mot: "Innovation",
+        //     style: { 
+        //         fontFamily: "unicaone", 
+        //     },
+        //     path: "/innovation",
+        // },
+        // {   mot: "Imagination",
+        //     style: { 
+        //         fontFamily: "mercy_christole",
+        //         fontWeight: "300" 
+        //     },
+        //     path: "/imagination",
+        // },
         {   mot: "Expression",
         style: { 
                 fontFamily: "rainboho", 
@@ -42,12 +42,12 @@ const LesMots = ({isDown}) => {
             },
             path: "/inspiration",
         },
-        {   mot: "Flexibilité",
-            style: { 
-                fontFamily: "overwave", 
-            },
-            path: "/flexibilite",
-        },
+        // {   mot: "Flexibilité",
+        //     style: { 
+        //         fontFamily: "overwave", 
+        //     },
+        //     path: "/flexibilite",
+        // },
         {   mot: "Expérimentation",
             style: { 
                 fontFamily: "retrolight", 
@@ -56,67 +56,81 @@ const LesMots = ({isDown}) => {
             },
             path: "/experimentation",
         },
-        {   mot: "Intuition",
-            style: { 
-                fontFamily: "kinan", 
-                fontWeight: "200",
-            },
-            path: "/intuition",
-        },
-        {   mot: "Perspective",
-        style: { 
-                fontFamily: "plexifont", 
-                fontWeight: "200",
-            },
-            path: "/perspective",
-        },
-        {   mot: "Originalité",
-            style: { 
-                fontFamily: "roblox", 
-            },
-            path: "/originalite",
-        },
-        {   mot: "Créativité",
-            style: { 
-                fontFamily: "protest", 
-            },
-            path: "/creativite",
-        },
+        // {   mot: "Intuition",
+        //     style: { 
+        //         fontFamily: "kinan", 
+        //         fontWeight: "200",
+        //     },
+        //     path: "/intuition",
+        // },
+        // {   mot: "Perspective",
+        // style: { 
+        //         fontFamily: "plexifont", 
+        //         fontWeight: "200",
+        //     },
+        //     path: "/perspective",
+        // },
+        // {   mot: "Originalité",
+        //     style: { 
+        //         fontFamily: "roblox", 
+        //     },
+        //     path: "/originalite",
+        // },
+        // {   mot: "Créativité",
+        //     style: { 
+        //         fontFamily: "protest", 
+        //     },
+        //     path: "/creativite",
+        // },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const intervalRef = useRef(null);
+    const interval = useRef(null);
     const navigate = useNavigate();
     const [isLooping, setIsLooping] = useState(false);
 
     useEffect(() => {
 
         const startLoop = () => {
-            console.log("Start loop");
             if (!isLooping){
-                intervalRef.current = setInterval(() => {
-                    setCurrentIndex((prevIndex) => (prevIndex + 1) % lesMotsAvecStyles.length);
-                }, 150);
                 setIsLooping(true);
+               interval.current = setInterval(() => {
+
+                    setCurrentIndex((prevIndex) => {
+                        const nextIndex = prevIndex + 1;
+                        return nextIndex >= lesMotsAvecStyles.length ? 0 : nextIndex;
+                    });
+
+                    console.log(currentIndex + " "  + " " + lesMotsAvecStyles.length);
+                }, 1500);
             }
         };
+        
 
         const stopLoop = () => {
-            clearInterval(intervalRef.current);
             if (isLooping){
-                navigate(lesMotsAvecStyles[currentIndex].path);
+                console.log(interval);
                 setIsLooping(false);
+                setCurrentIndex(0);
+                navigate(lesMotsAvecStyles[currentIndex].path);
             }
             
         };
         
         if (isDown) {
             startLoop();
+            console.log("chouette il");
         } else {
             stopLoop();
         }
         
-    }, [lesMotsAvecStyles.length, currentIndex, navigate, isDown]);
+    }, [isDown]);
+
+    useEffect(() => {
+        return () => {
+            clearInterval(interval.current);
+        }
+    }, []);
 
 
     return (

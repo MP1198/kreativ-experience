@@ -64,7 +64,7 @@ const App = () => {
           document.removeEventListener("keyup", handleKeyUp);
       }
   
-  }, [isSpaceDown]);
+  }, []);
 
   const routes = [
     {
@@ -78,62 +78,50 @@ const App = () => {
         },
         {
           path: "les-mots",
-          index: true,
           element: <LesMots  isDown={isSpaceDown}/>
         },
         {
           path: "perspective",
-          index: true,
           element: <Perspective isDown={isSpaceDown}/>
         },
         {
           path: "originalite",
-          index: true,
           element: <Originalite isDown={isSpaceDown}/>
         },
         {
           path: "intuition",
-          index: true,
           element: <Intuition isDown={isSpaceDown}/>
         },
         {
           path: "inspiration",
-          index: true,
           element: <Inspiration isDown={isSpaceDown}/>
         },
         {
           path: "innovation",
-          index: true,
           element: <Innovation isDown={isSpaceDown}/>
         },
         {
           path: "ingeniosite",
-          index: true,
           element: <Ingeniosite isDown={isSpaceDown}/>
         },
         {
           path: "imagination",
-          index: true,
           element: <Imagination isDown={isSpaceDown}/>
         },
         {
           path: "flexibilite",
-          index: true,
           element: <Flexibilite isDown={isSpaceDown}/>
         },
         {
           path: "expression",
-          index: true,
           element: <Expression isDown={isSpaceDown}/>
         },
         {
           path: "experimentation",
-          index: true,
           element: <Experimentation isDown={isSpaceDown}/>
         },
         {
           path: "creativite",
-          index: true,
           element: <Creativite isDown={isSpaceDown}/>
         },
       ]

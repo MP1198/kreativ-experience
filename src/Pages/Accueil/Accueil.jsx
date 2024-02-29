@@ -1,6 +1,7 @@
 import "./Accueil.scss";
 import BgAccueil from "../../Components/BgAccueil/BgAccueil";
 import ChangePage from "../../Components/ChangePage/ChangePage";
+import Instruction from "../../Components/UI/Instruction";
 
 const Accueil = ({isDown}) => {
   return (
@@ -20,6 +21,7 @@ const Accueil = ({isDown}) => {
             <h2 className="accueil-slogan">Exprérience Intéractive</h2>
         </div>
         <ChangePage isDown={isDown}/>
+        <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={6000}/>
     </div>
   );
 };
