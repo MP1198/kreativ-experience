@@ -21,7 +21,7 @@ const Accueil = ({isDown}) => {
             <h2 className="accueil-slogan">Exprérience interactive</h2>
         </div>
         <ChangePage isDown={isDown}/>
-        <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={6000}/>
+        <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={90000} delaisOut={30000}/>
     </div>
   );
 };
