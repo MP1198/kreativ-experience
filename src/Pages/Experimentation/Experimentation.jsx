@@ -3,6 +3,7 @@ import anime from "animejs";
 import "./Experimentation.scss";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import Instruction from "../../Components/UI/Instruction";
+import Instruction from "../../Components/UI/Instruction";
 
     // Après les tests
     // mettre un bouton pour recommencer au lieu de le faire automatiquement
@@ -209,8 +210,7 @@ const Experimentation2 = ({ isDown }) => {
             <div className="experimentation-cible" ref={cibleRef}>
                 <span></span ><span></span> <span></span> <span></span>
             </div>
-            <Instruction texte={"Cliquez pour trouver le point qui reconstruira le mot."} delais={9000} delaisOut={7000}/>
-            {/* <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={120000} delaisOut={60000}/> */}
+            <Instruction texte={"Cliquez afin de trouver le point qui reformera le mot"} delais={3000} delaisOut={20000}/>
         </div>
     );
 };

@@ -18,7 +18,7 @@ const Accueil = ({isDown}) => {
         <BgAccueil/>
         <div className="accueil-container">
             <h1 className="accueil-titre">Kreativ</h1>
-            <h2 className="accueil-slogan">Exprérience Intéractive</h2>
+            <h2 className="accueil-slogan">Expérience interactive</h2>
         </div>
         <ChangePage isDown={isDown}/>
         <Instruction texte={"Maintenez la barre d'espacement enfoncée pour changer de page"} delais={10000} delaisOut={30000}/>

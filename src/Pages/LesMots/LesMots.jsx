@@ -7,13 +7,13 @@ const LesMots = ({isDown}) => {
 
 
     const lesMotsAvecStyles = [
-        {   mot: "Ingéniosité",
-            style: { 
-                fontFamily: "curetro",
-                letterSpacing: "8px",
-            },
-            path: "/ingeniosite",
-        }, 
+        // {   mot: "Ingéniosité",
+        //     style: { 
+        //         fontFamily: "curetro",
+        //         letterSpacing: "8px",
+        //     },
+        //     path: "/ingeniosite",
+        // }, 
         // {   mot: "Innovation",
         //     style: { 
         //         fontFamily: "unicaone", 
@@ -34,14 +34,14 @@ const LesMots = ({isDown}) => {
             },
             path: "/expression",
         },
-        {   mot: "Inspiration",
-            style: { 
-                fontFamily: "lostar", 
-                fontWeight: "200",
-                letterSpacing: "8px",
-            },
-            path: "/inspiration",
-        },
+        // {   mot: "Inspiration",
+        //     style: { 
+        //         fontFamily: "lostar", 
+        //         fontWeight: "200",
+        //         letterSpacing: "8px",
+        //     },
+        //     path: "/inspiration",
+        // },
         // {   mot: "Flexibilité",
         //     style: { 
         //         fontFamily: "overwave", 
