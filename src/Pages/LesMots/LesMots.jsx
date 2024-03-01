@@ -102,7 +102,7 @@ const LesMots = ({isDown}) => {
                     });
 
                     console.log(currentIndex + " "  + " " + lesMotsAvecStyles.length);
-                }, 1500);
+                }, 150);
             }
         };
         

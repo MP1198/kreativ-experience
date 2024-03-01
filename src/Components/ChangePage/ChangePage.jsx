@@ -13,7 +13,7 @@ const ChangePage = ({ isDown }) => {
             anime({
                 targets: loadingBar.current,
                 width: "100%",
-                duration: 5000,
+                duration: 3000,
                 easing: "easeInOutQuad",
                 complete: () => {
                     console.log("Animation on terminée");

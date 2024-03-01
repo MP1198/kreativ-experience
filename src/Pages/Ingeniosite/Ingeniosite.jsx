@@ -1,4 +1,5 @@
 import ChangePage from "../../Components/ChangePage/ChangePage";
+import Instruction from "../../Components/UI/Instruction";
 import "./Ingeniosite.scss";
 
 import ReactFlow from 'reactflow';
@@ -18,6 +19,7 @@ const Ingeniosite = ({isDown}) => {
       <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow nodes={initialNodes} edges={initialEdges} />
     </div>
+    {/* <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={120000} delaisOut={30000}/> */}
     </div>
   );
 };

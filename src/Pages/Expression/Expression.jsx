@@ -3,6 +3,7 @@ import anime from "animejs";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Expression.scss";
 import citations from "./citations.json";
+import Instruction from "../../Components/UI/Instruction";
 
 //  aPRES LES TESTS - NE PAS POUVOIR CLIQUER SI UN CHAMP DU FORMULAIRE EST VIDE
 // MESSAGE ERREUR
@@ -201,6 +202,7 @@ const Expression = ({ isDown }) => {
           <span>- {auteur}</span>
         </p>
       </div>
+      {/* <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={120000} delaisOut={30000}/> */}
     </div>
   );
 };
