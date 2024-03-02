@@ -7,47 +7,28 @@ const LesMots = ({isDown}) => {
 
 
     const lesMotsAvecStyles = [
-        // {   mot: "Ingéniosité",
-        //     style: { 
-        //         fontFamily: "curetro",
-        //         letterSpacing: "8px",
-        //     },
-        //     path: "/ingeniosite",
-        // }, 
-        // {   mot: "Innovation",
-        //     style: { 
-        //         fontFamily: "unicaone", 
-        //     },
-        //     path: "/innovation",
-        // },
-        // {   mot: "Imagination",
-        //     style: { 
-        //         fontFamily: "mercy_christole",
-        //         fontWeight: "300" 
-        //     },
-        //     path: "/imagination",
-        // },
+        {   mot: "Ingéniosité",
+            style: { 
+                fontFamily: "curetro",
+                letterSpacing: "8px",
+            },
+            path: "/ingeniosite",
+        },
         {   mot: "Expression",
-        style: { 
+            style: { 
                 fontFamily: "rainboho", 
                 fontWeight: "100" 
             },
             path: "/expression",
         },
-        // {   mot: "Inspiration",
-        //     style: { 
-        //         fontFamily: "lostar", 
-        //         fontWeight: "200",
-        //         letterSpacing: "8px",
-        //     },
-        //     path: "/inspiration",
-        // },
-        // {   mot: "Flexibilité",
-        //     style: { 
-        //         fontFamily: "overwave", 
-        //     },
-        //     path: "/flexibilite",
-        // },
+        {   mot: "Inspiration",
+            style: { 
+                fontFamily: "lostar", 
+                fontWeight: "200",
+                letterSpacing: "8px",
+            },
+            path: "/inspiration",
+        },
         {   mot: "Expérimentation",
             style: { 
                 fontFamily: "retrolight", 
@@ -56,32 +37,6 @@ const LesMots = ({isDown}) => {
             },
             path: "/experimentation",
         },
-        // {   mot: "Intuition",
-        //     style: { 
-        //         fontFamily: "kinan", 
-        //         fontWeight: "200",
-        //     },
-        //     path: "/intuition",
-        // },
-        // {   mot: "Perspective",
-        // style: { 
-        //         fontFamily: "plexifont", 
-        //         fontWeight: "200",
-        //     },
-        //     path: "/perspective",
-        // },
-        // {   mot: "Originalité",
-        //     style: { 
-        //         fontFamily: "roblox", 
-        //     },
-        //     path: "/originalite",
-        // },
-        // {   mot: "Créativité",
-        //     style: { 
-        //         fontFamily: "protest", 
-        //     },
-        //     path: "/creativite",
-        // },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);

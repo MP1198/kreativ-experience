@@ -12,4 +12,20 @@
   font-size: 200px;
   letter-spacing: 8px;
   color: white;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.react-flow__node-ingeniositeNode {
+  font-family: "curetro";
+  font-size: 200px;
+  letter-spacing: 8px;
+  color: white;
+}
+
+.react-flow__node {
+  background-color: transparent;
+  border: none;
 }/*# sourceMappingURL=Ingeniosite.css.map */

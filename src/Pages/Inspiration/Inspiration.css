@@ -11,8 +11,16 @@
   font-family: "lostar";
   font-size: 180px;
   font-weight: 200;
-  letter-spacing: 8px;
   color: white;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
 }
 
 .roulette-container {

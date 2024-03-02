@@ -3,7 +3,6 @@ import anime from "animejs";
 import "./Experimentation.scss";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import Instruction from "../../Components/UI/Instruction";
-import Instruction from "../../Components/UI/Instruction";
 
     // Après les tests
     // mettre un bouton pour recommencer au lieu de le faire automatiquement

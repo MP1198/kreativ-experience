@@ -82,7 +82,7 @@
 }
 .accueil-slogan::before {
   content: "";
-  width: 750px;
+  width: 73%;
   height: 8px;
   background-color: white;
   position: absolute;

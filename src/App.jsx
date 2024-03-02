@@ -81,36 +81,12 @@ const App = () => {
           element: <LesMots  isDown={isSpaceDown}/>
         },
         {
-          path: "perspective",
-          element: <Perspective isDown={isSpaceDown}/>
-        },
-        {
-          path: "originalite",
-          element: <Originalite isDown={isSpaceDown}/>
-        },
-        {
-          path: "intuition",
-          element: <Intuition isDown={isSpaceDown}/>
-        },
-        {
           path: "inspiration",
           element: <Inspiration isDown={isSpaceDown}/>
         },
         {
-          path: "innovation",
-          element: <Innovation isDown={isSpaceDown}/>
-        },
-        {
           path: "ingeniosite",
           element: <Ingeniosite isDown={isSpaceDown}/>
-        },
-        {
-          path: "imagination",
-          element: <Imagination isDown={isSpaceDown}/>
-        },
-        {
-          path: "flexibilite",
-          element: <Flexibilite isDown={isSpaceDown}/>
         },
         {
           path: "expression",
@@ -119,10 +95,6 @@ const App = () => {
         {
           path: "experimentation",
           element: <Experimentation isDown={isSpaceDown}/>
-        },
-        {
-          path: "creativite",
-          element: <Creativite isDown={isSpaceDown}/>
         },
       ]
     },
