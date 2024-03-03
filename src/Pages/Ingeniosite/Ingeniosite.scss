@@ -7,37 +7,26 @@
     justify-content: center;
 }
 
-
 .react-flow__node-ingeniositeNode {
     font-family: "curetro";
     font-size: 200px;
     letter-spacing: 8px;
     color: white;
-    text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 15px #fff,
-        0 0 20px #49ff18,
-        0 0 30px #49ff18,
-        0 0 40px #49ff18,
-        0 0 55px #49ff18,
-        0 0 75px #49ff18,
-        0px 0px 20px rgba(24, 255, 65, 1);
 }
 
-.react-flow__node-blobNode{
-    background: radial-gradient(circle at center, #FFFFFF 0%, #49FF18 100%);
+.react-flow__node-blobNode {
+    // background: radial-gradient(circle at center, #FFFFFF 0%, #49FF18 100%);
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    box-shadow: 
-    0 0 5px #49ff18,
-    0 0 10px #49ff18,
-    0px 0px 29px 5px #49ff18;
+    // width: 100px;
+    // height: 100px;
+    // box-shadow:
+    // 0 0 5px #49ff18,
+    // 0 0 10px #49ff18,
+    // 0px 0px 29px 5px #49ff18;
 }
 
 // Drag and Drop menu
-.dnd-container{
+.dnd-container {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -52,65 +41,13 @@
     justify-content: center;
 }
 
-.blobNode{
-    background: radial-gradient(circle at center, #FFFFFF 0%, #49FF18 100%);
+.blobNode {
+    background: radial-gradient(circle at center, #ffffff 0%, #49ff18 100%);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    box-shadow: 
-    0 0 5px #49ff18,
-    0 0 1px #49ff18,
-    0px 0px 10px 5px #49ff18;
+    // width: 50px;
+    // height: 50px;
+    box-shadow:
+        0 0 5px #49ff18,
+        0 0 1px #49ff18,
+        0px 0px 10px 5px #49ff18;
 }
-
-
-
-
-.blobNodeVert{
-    background: radial-gradient(circle at center, #FFFFFF 0%, #49FF18 100%);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    box-shadow: 
-    0 0 5px #49ff18,
-    0 0 1px #49ff18,
-    0px 0px 10px 5px #49ff18;
-}
-
-.blobNodeRose{
-    margin: 10px;
-    background: radial-gradient(circle at center, #FFFFFF 0%, #ff00cf 100%);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    box-shadow: 
-    0 0 5px #ff00cf,
-    0 0 1px #ff00cf,
-    0px 0px 10px 5px #ff00cf;
-}
-
-.blobNodeMauve{
-    margin: 10px;
-    background: radial-gradient(circle at center, #FFFFFF 0%, #6900ff 100%);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    box-shadow: 
-    0 0 5px #6900ff,
-    0 0 1px #6900ff,
-    0px 0px 10px 5px #6900ff;
-}
-
-.blobNodeJaune{
-    margin: 10px;
-    background: radial-gradient(circle at center, #FFFFFF 0%, #f2ff00 100%);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    box-shadow: 
-    0 0 5px #f2ff00,
-    0 0 1px #f2ff00,
-    0px 0px 10px 5px #f2ff00;
-}
-

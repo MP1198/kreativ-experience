@@ -5,80 +5,105 @@ import NodeIngeniosite from "./NodeIngeniosite";
 import BlobsNodes from "./BlobsNodes";
 import Dragable from "./Dragable";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 import ReactFlow, {
   applyEdgeChanges,
   applyNodeChanges,
   addEdge,
-  Background
+  Background,
 } from "reactflow";
 import "reactflow/dist/style.css";
 
-
-
-
 const Ingeniosite = ({ isDown }) => {
-  
   const initialNodes = [
-    { id: "1", position: { x: 0, y: 0 }, type: "blobNode",},
-    { id: "2", position: { x: 0, y: 100 }, type: "blobNode", },
-    { id: "3", position: { x: 100, y: 100 }, type: "blobNode", },
-    { id: "4", position: { x: 200, y: 100 }, type: "blobNode", },
-    { id: "5", position: { x: 300, y: 100 }, type: "blobNode", },
-    { id: "6", position: { x: 400, y: 100 }, type: "blobNode", },
+    { id: "1", position: { x: 0, y: 0 }, type: "blobNode" },
+    { id: "2", position: { x: 0, y: 100 }, type: "blobNode" },
+    { id: "3", position: { x: 100, y: 100 }, type: "blobNode" },
+    { id: "4", position: { x: 200, y: 100 }, type: "blobNode" },
+    { id: "5", position: { x: 300, y: 100 }, type: "blobNode" },
+    { id: "6", position: { x: 400, y: 100 }, type: "blobNode" },
     {
       id: "output",
       type: "ingeniositeNode",
       position: { x: 250, y: 300 },
-      style: { width: 1110, height: 200 },
+      style: { width: 1110, height: 200, textShadow: "0 0 0px rgba(0, 0, 0, 0)"},
       connectable: true,
     },
   ];
-
 
   const nodeTypes = {
     ingeniositeNode: NodeIngeniosite,
     blobNode: BlobsNodes,
   };
+
   const initialEdges = [];
 
   const [nodes, setNodes] = useState(initialNodes);
+
   const [edges, setEdges] = useState(initialEdges);
+
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
+
   const reactFlowWrapper = useRef();
+
   let id = 0;
   const getId = () => `dndnode_${id++}`;
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = "move";
   }, []);
+
+  const [blobColors, setBlobColors] = useState({});
+  const randomColor = () => {
+    const couleursBlobs = [
+      "#824D83",
+      "#BE4477",
+      "#E84773",
+      "#FA756E",
+      "#FEB34E",
+    ];
+    const randomIndex = Math.floor(Math.random() * couleursBlobs.length);
+    return couleursBlobs[randomIndex];
+  };
+
+  const randomStyle = (color) => {
+    const diameter = Math.random() * (175 - 50 + 1) + 50;
+    return {
+      width: diameter,
+      height: diameter,
+      background: `radial-gradient(circle at center, #FFFFFF 0%, ${color} 100%)`,
+      boxShadow: `0 0 5px ${color}, 0 0 10px ${color}, 0px 0px 29px 5px ${color}`,
+    };
+  };
 
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
+      const color = randomColor();
+      const type = event.dataTransfer.getData("application/reactflow");
 
-      const type = event.dataTransfer.getData('application/reactflow');
-
-      if (typeof type === 'undefined' || !type) {
+      if (!type) {
         return;
       }
 
-      const position = reactFlowInstance.screenToFlowPosition({
+      const position = reactFlowInstance?.screenToFlowPosition({
         x: event.clientX,
         y: event.clientY,
       });
       const newNode = {
         id: getId(),
         type,
-        position,
+        position: position || { x: 0, y: 0 },
         data: { label: `${type} node` },
+        style: randomStyle(color),
       };
 
-      setNodes((nds) => nds.concat(newNode));
+      setNodes((prevNodes) => [...prevNodes, newNode]);
+      setBlobColors((prevColors) => ({ ...prevColors, [newNode.id]: color }));
     },
-    [reactFlowInstance],
+    [reactFlowInstance]
   );
 
   const onNodesChange = useCallback(
@@ -91,21 +116,64 @@ const Ingeniosite = ({ isDown }) => {
     []
   );
 
-  const onConnect = useCallback(
-    (params) =>
-      setEdges((eds) =>
-        addEdge(
-          {
-            ...params,
-            animated: true,
-            style: { stroke: "#49ff18", strokeWidth: 3 },
-            type: "straight",
-          },
-          eds
-        )
-      ),
-    []
-  );
+  const onConnect = (params) => {
+    const sourceColor = blobColors[params.source] || 'white';
+    const connectedNodeIds = [params.source, params.target];
+    const connectedNodeColors = connectedNodeIds.map((id) => blobColors[id] || 'white');
+
+    const edgeStyle = {
+      stroke: sourceColor,
+      strokeWidth: 3,
+    };
+
+    const newEdge = {
+      ...params,
+      animated: true,
+      type: "straight",
+      style: edgeStyle,
+      id: `${params.source}-${params.target}`,
+    };
+
+    setEdges((prevEdges) => [...prevEdges, newEdge]);
+    updateTextShadow(connectedNodeColors);
+  };
+  
+  const updateTextShadow = (colors) => {
+    const outputNodeIndex = nodes.findIndex((node) => node.id === "output");
+    if (outputNodeIndex === -1) return;
+  
+    const existingShadows = nodes[outputNodeIndex].style.textShadow || '';
+    const filteredShadows = existingShadows.split(',').map(shadow => shadow.trim()).filter(shadow => {
+      const color = shadow.split(' ').pop();
+      return color !== 'white' && !shadow.startsWith('0 0 0px rbga(0, 0, 0, 0)');
+    });
+  
+    let newShadows = [...filteredShadows];
+  
+    for (let i = 0; i < colors.length; i++) {
+      const color = colors[i];
+      if (color !== 'white') {
+        const blurRadius = (filteredShadows.length + i + 1) * 5;
+        const shadow = `0 0 ${blurRadius}px ${color}`;
+        newShadows.push(shadow);
+      }
+    }
+  
+    const newTextShadow = newShadows.join(', ');
+    console.log(newTextShadow);
+  
+    setNodes((prevNodes) => {
+      const newNodes = [...prevNodes];
+      newNodes[outputNodeIndex] = {
+        ...newNodes[outputNodeIndex],
+        style: {
+          ...newNodes[outputNodeIndex].style,
+          textShadow: newTextShadow,
+        },
+      };
+      return newNodes;
+    });
+  };
 
   return (
     <div className="ingeniosite-container">
@@ -119,12 +187,9 @@ const Ingeniosite = ({ isDown }) => {
           onConnect={onConnect}
           zoomOnDoubleClick={false}
           nodeTypes={nodeTypes}
-
           onInit={setReactFlowInstance}
           onDrop={onDrop}
           onDragOver={onDragOver}
-
-          
         />
       </div>
       <Dragable />
@@ -132,5 +197,4 @@ const Ingeniosite = ({ isDown }) => {
     </div>
   );
 };
-
 export default Ingeniosite;

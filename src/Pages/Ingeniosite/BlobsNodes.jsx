@@ -1,11 +1,11 @@
 import React, { memo, useEffect, useState } from "react";
 import { Handle } from "reactflow";
 
-export default memo(({ isConnectable }) => {
+export default memo(({ isConnectable,  color}) => {
     
   return (
     <>
-      <div className="node-blob"> </div>
+      <div className="node-blob" style={{ background: color }}> </div>
       <Handle
         type="source"
         id="inputHandle"
@@ -18,7 +18,7 @@ export default memo(({ isConnectable }) => {
           width: 20,
           height: 20,
           borderRadius: "50%",
-          opasity: 0.5,
+          opacity: 0.8,
         }}
         isConnectable={isConnectable}
       />
