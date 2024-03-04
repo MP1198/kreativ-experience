@@ -17,12 +17,6 @@ import "reactflow/dist/style.css";
 
 const Ingeniosite = ({ isDown }) => {
   const initialNodes = [
-    { id: "1", position: { x: 0, y: 0 }, type: "blobNode" },
-    { id: "2", position: { x: 0, y: 100 }, type: "blobNode" },
-    { id: "3", position: { x: 100, y: 100 }, type: "blobNode" },
-    { id: "4", position: { x: 200, y: 100 }, type: "blobNode" },
-    { id: "5", position: { x: 300, y: 100 }, type: "blobNode" },
-    { id: "6", position: { x: 400, y: 100 }, type: "blobNode" },
     {
       id: "output",
       type: "ingeniositeNode",
@@ -58,11 +52,10 @@ const Ingeniosite = ({ isDown }) => {
   const [blobColors, setBlobColors] = useState({});
   const randomColor = () => {
     const couleursBlobs = [
-      "#824D83",
-      "#BE4477",
-      "#E84773",
-      "#FA756E",
-      "#FEB34E",
+      "#ff1cc0",
+      "#b131fa",
+      "#4a0074",
+      "#1c3aff",
     ];
     const randomIndex = Math.floor(Math.random() * couleursBlobs.length);
     return couleursBlobs[randomIndex];

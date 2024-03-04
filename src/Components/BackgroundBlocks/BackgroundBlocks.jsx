@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import anime from "animejs";
 
 const BackgroundBlocks = () => {
+    
     useEffect(() => {
         const container = document.querySelector(".bgb-container");
         function animBlocks() {
@@ -18,10 +19,14 @@ const BackgroundBlocks = () => {
                 });
             });
         }
-        
+
+        setTimeout(() => {
+            animBlocks();
+        }, 10);
+
         container.addEventListener("mouseenter", animBlocks);
         
-        const nbBox = 100;
+        const nbBox = 200;
         for (let i = 0; i < nbBox; i++) {
             let block = document.createElement("div");
             block.classList.add("bgb-block");
@@ -37,7 +42,7 @@ const BackgroundBlocks = () => {
     
 
   return (
-    <div className="bgb-bigContainer">
+    <div className="bgb-bigContainer" onLoad={() => animBlocks()}>
         <div className="bgb-container"></div>
     </div>
   );

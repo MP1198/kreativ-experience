@@ -13,7 +13,7 @@ const ClickParticules = () => {
 
   useEffect(() => {
     const container = containerRef.current;
-    const ctx = container.getContext("2d");
+    const ctx = container ? container.getContext("2d") : null;
 
     function setContainerSize() {
       container.width = window.innerWidth * 2;

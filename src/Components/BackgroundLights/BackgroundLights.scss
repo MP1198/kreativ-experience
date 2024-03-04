@@ -10,12 +10,13 @@ $clr-bleu: #0ff;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #2c2c2c;
+    min-width: 100vw;
+    background-color: transparent;
 
     .bg-container{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        // grid-template-columns: repeat(4, 1fr);
+        // grid-template-rows: repeat(4, 1fr);
         grid-gap: 5px;
         
         .bg-card{
@@ -23,7 +24,7 @@ $clr-bleu: #0ff;
             width: 150px;
             height: 150px;
             border-radius: 5%;
-            background: rgb(83, 83, 83);
+            background: rgb(42, 42, 42);
             overflow: hidden;
             
             &:hover::before{
@@ -44,7 +45,7 @@ $clr-bleu: #0ff;
                 content: '';
                 position: absolute;
                 inset: 3px;
-                background: rgb(83, 83, 83,0.9);
+                background: rgb(42, 42, 42,0.9);
                 border-radius: 5%;
             }
         }
