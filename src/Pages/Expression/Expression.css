@@ -19,6 +19,17 @@
           user-select: none;
 }
 
+.messageVisible {
+  position: relative;
+  font-size: 50px;
+  text-align: center;
+}
+.messageVisible span {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 .text-container {
   position: relative;
 }

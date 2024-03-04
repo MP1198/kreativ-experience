@@ -14,8 +14,6 @@ import Instruction from "../../Components/UI/Instruction";
 const Expression = ({ isDown }) => {
   const [isTextareaFocused, setIsTextareaFocused] = useState(false);
 
-
-
   useEffect(() => {
     function animCercle() {
       const cercles = document.querySelectorAll(".text-cercle");
@@ -30,8 +28,8 @@ const Expression = ({ isDown }) => {
               easing: "easeInOutSine",
             },
             {
-              translateX: `${anime.random(-15, 15)}`,
-              translateY: `${anime.random(-15, 15)}`,
+              translateX: `${anime.random(-30, 30)}`,
+              translateY: `${anime.random(-30, 30)}`,
               duration: `${anime.random(1500, 3000)}`,
               easing: "easeInOutSine",
             },
@@ -59,6 +57,8 @@ const Expression = ({ isDown }) => {
   const [auteur, setAuteur] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [quotePosition, setQuotePosition] = useState({});
+  const [newQuote, setNewQuote] = useState("");
+  const [newAuteur, setNewAuteur] = useState("");
   const positions = [
     { bottom: "34px", right: "34px" },
     { top: "44px", right: "28px" },
@@ -92,7 +92,7 @@ const Expression = ({ isDown }) => {
         animQuote();
         setIsVisible(true);
       }, 2000);
-    }else if (!isVisible && newAuteur != "" && newQuote != "") {
+    } else if (!isVisible && newAuteur != "" && newQuote != "") {
       setTimeout(() => {
         setRandomQuote(newQuote);
         setAuteur(newAuteur);
@@ -135,25 +135,34 @@ const Expression = ({ isDown }) => {
       easing: "easeInOutQuad",
     });
   }
-  
-  const [newQuote, setNewQuote] = useState('');
-  const [newAuteur, setNewAuteur] = useState('');
 
+  const [messageUserVisible, setMessageUserVisible] = useState(false);
+  const [messageUser, setMessageUser] = useState(false);
+  const [AuteurUser, setAuteurUser] = useState(false);
   const handleButtonClick = () => {
-    const newCitation = { citation: newQuote, auteur: newAuteur };
-    setRandomQuote(newCitation.citation);
-    setAuteur(newCitation.auteur);
-    setIsVisible(true);
-    const randomColor =
-    couleurs[Math.floor(Math.random() * couleurs.length)];
-    setQuoteCouleur(randomColor);
+    setMessageUserVisible(true);
+    setMessageUser(newQuote);
+    setAuteurUser(newAuteur);
+    setTimeout(() => {
+      setIsVisible(false);
+      setNewQuote("");
+      setNewAuteur("");
+    }, 5000);
   };
 
   return (
     <div className="expression-container">
-
       <ChangePage isDown={isDown} />
-      <h1 className="expression-titre">Expression</h1>
+      <h1 className={`expression-titre  ${messageUserVisible ? "messageVisible" :  ""}`}>
+        {messageUserVisible ? (
+          <>
+            {messageUser}
+            <span>- {AuteurUser}</span>
+          </>
+        ) : (
+          "Expression"
+        )}
+      </h1>
 
       <div className="text-container">
         <form className="expression-form" action="">
@@ -162,12 +171,11 @@ const Expression = ({ isDown }) => {
             type="textarea"
             name=""
             id=""
-            autoFocus
             wrap="hard"
             placeholder="Laissez votre créativité s'exprimer ici."
             onFocus={() => setIsTextareaFocused(true)}
             onBlur={() => setIsTextareaFocused(false)}
-            onChange={e => setNewQuote(e.target.value)}
+            onChange={(e) => setNewQuote(e.target.value)}
             value={newQuote}
           />
           <input
@@ -176,17 +184,15 @@ const Expression = ({ isDown }) => {
             placeholder="Auteur"
             onFocus={() => setIsTextareaFocused(true)}
             onBlur={() => setIsTextareaFocused(false)}
-            onChange={e => setNewAuteur(e.target.value)}
+            onChange={(e) => setNewAuteur(e.target.value)}
             value={newAuteur}
           />
           <input
             className="expression-btn"
             type="button"
-            value="Ajouter une citation"
+            value="Afficher votre message"
             onClick={() => {
               handleButtonClick();
-              setNewQuote('');
-              setNewAuteur('');
             }}
           />
         </form>
