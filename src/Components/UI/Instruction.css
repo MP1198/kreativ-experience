@@ -11,6 +11,13 @@
   opacity: 0;
 }
 
+.rouge {
+  background-color: red;
+}
+.rouge .instruction {
+  color: white;
+}
+
 .instruction {
   color: black;
   font-size: 16px;

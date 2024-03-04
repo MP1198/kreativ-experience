@@ -41,8 +41,8 @@
 
 .experimentation-tire {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }

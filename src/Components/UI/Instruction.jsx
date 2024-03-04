@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import "./Instruction.scss";
 
-const Instruction = ({ texte, delais, delaisOut }) => {
+const Instruction = ({ texte, delais, delaisOut, couleur }) => {
     const [isVisible, setIsVisible] = useState(true);
     const instructionRef = useRef(null);
 
@@ -37,7 +37,7 @@ const Instruction = ({ texte, delais, delaisOut }) => {
     return (
         <>
             {isVisible && (
-                <div className="instruction-container" ref={instructionRef}>
+                <div className={`instruction-container ${couleur}`} ref={instructionRef}>
                     <p className="instruction">{texte}</p>
                 </div>
             )}
