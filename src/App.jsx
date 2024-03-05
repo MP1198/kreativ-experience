@@ -17,7 +17,6 @@ import Expression from "./Pages/Expression/Expression";
 import Experimentation from "./Pages/Experimentation/Experimentation";
 import Creativite from "./Pages/Creativite/Creativite";
 
-
 // fonts
 import "./Fonts/Fonts.scss";
 import "./Fonts/curetro-webfont.woff";
