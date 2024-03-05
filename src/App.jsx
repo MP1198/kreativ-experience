@@ -5,17 +5,10 @@ import { useState, useEffect } from "react";
 import Layout from "./Components/Layout/Layout";
 import Accueil from "./Pages/Accueil/Accueil";
 import LesMots from "./Pages/LesMots/LesMots";
-import Perspective from "./Pages/Perspective/Perspective";
 import Originalite from "./Pages/Originalite/Originalite";
-import Intuition from "./Pages/Intuition/Intuition";
-import Inspiration from "./Pages/Inspiration/Inspiration";
-import Innovation from "./Pages/Innovation/Innovation";
 import Ingeniosite from "./Pages/Ingeniosite/Ingeniosite";
-import Imagination from "./Pages/Imagination/Imagination";
-import Flexibilite from "./Pages/Flexibilite/Flexibilite";
 import Expression from "./Pages/Expression/Expression";
 import Experimentation from "./Pages/Experimentation/Experimentation";
-import Creativite from "./Pages/Creativite/Creativite";
 
 // fonts
 import "./Fonts/Fonts.scss";
@@ -80,8 +73,8 @@ const App = () => {
           element: <LesMots  isDown={isSpaceDown}/>
         },
         {
-          path: "inspiration",
-          element: <Inspiration isDown={isSpaceDown}/>
+          path: "originalite",
+          element: <Originalite isDown={isSpaceDown}/>
         },
         {
           path: "ingeniosite",
