@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+.expression-titre-container {
+  width: 1088px;
+  height: 310px;
+}
+
 .expression-titre {
   font-family: "rainboho";
   font-size: 200px;
@@ -20,14 +25,19 @@
 }
 
 .messageVisible {
-  position: relative;
-  font-size: 50px;
+  font-size: 75px;
+  font-weight: 50;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .messageVisible span {
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  display: block;
+  margin-top: 20px;
 }
 
 .text-container {
@@ -44,13 +54,21 @@
 
 .expression-textarea {
   width: 700px;
-  height: 200px;
+  height: 250px;
   resize: none;
   font-size: 16px;
 }
 
 .expression-btn {
-  border: 2px solid white;
+  outline: 2px solid white;
+  transition: 0.5s;
+}
+.expression-btn:hover {
+  color: rgb(102, 255, 214);
+  outline-color: rgb(102, 255, 214);
+  box-shadow: 0px 0px 15px rgb(102, 255, 214);
+  transition: 0.5s;
+  transition-property: box-shadow;
 }
 
 .expression-textarea,
@@ -72,8 +90,7 @@
 .expression-textarea:focus,
 .expression-btn:focus,
 .expression-auteur:focus {
-  outline: none;
-  border: 2px solid white;
+  outline: 2px solid white;
 }
 .expression-textarea:focus::-moz-placeholder, .expression-btn:focus::-moz-placeholder, .expression-auteur:focus::-moz-placeholder {
   color: white;
@@ -82,6 +99,10 @@
 .expression-btn:focus::placeholder,
 .expression-auteur:focus::placeholder {
   color: white;
+}
+
+.expression-error {
+  outline: 2px solid red;
 }
 
 .expression-auteur {

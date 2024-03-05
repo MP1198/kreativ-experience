@@ -73,29 +73,11 @@ const Expression = ({ isDown }) => {
   const [quoteStyle, setQuoteStyle] = useState({});
 
   useEffect(() => {
-    if (!isVisible && newAuteur === "" && newQuote === "") {
+    if (!isVisible) {
       setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * citations.length);
         setRandomQuote(citations[randomIndex].citation);
         setAuteur(citations[randomIndex].auteur);
-
-        const randomPosition =
-          positions[Math.floor(Math.random() * positions.length)];
-        setQuotePosition(randomPosition);
-
-        const randomColor =
-          couleurs[Math.floor(Math.random() * couleurs.length)];
-        setQuoteCouleur(randomColor);
-
-        setQuoteStyle({ ...randomPosition, ...randomColor });
-
-        animQuote();
-        setIsVisible(true);
-      }, 2000);
-    } else if (!isVisible && newAuteur != "" && newQuote != "") {
-      setTimeout(() => {
-        setRandomQuote(newQuote);
-        setAuteur(newAuteur);
 
         const randomPosition =
           positions[Math.floor(Math.random() * positions.length)];
@@ -136,33 +118,86 @@ const Expression = ({ isDown }) => {
     });
   }
 
+  function animeTitre() {
+    anime
+      .timeline({
+        targets: ".expression-titre",
+        easing: "easeInOutSine",
+      })
+      .add({
+        opacity: [1, 0], // fade out
+        duration: 1000,
+      })
+      .add({
+        opacity: [0, 1], // fade in
+        duration: 1000,
+      });
+  }
+
+  const awaitAnimation = (objetAnimation) => {
+    const promise = new Promise((resolve, reject) => {
+      anime({ ...objetAnimation, complete: () => resolve() });
+    });
+    return promise;
+  };
+  
+  const delay = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
   const [messageUserVisible, setMessageUserVisible] = useState(false);
   const [messageUser, setMessageUser] = useState(false);
   const [AuteurUser, setAuteurUser] = useState(false);
-  const handleButtonClick = () => {
-    setMessageUserVisible(true);
-    setMessageUser(newQuote);
-    setAuteurUser(newAuteur);
-    setTimeout(() => {
-      setIsVisible(false);
+  const textArea = useRef(null);
+  const textAuteur = useRef(null);
+
+  const handleButtonClick = async () => {
+    if(newQuote ==='')
+    {
+      textArea.current.classList.add('expression-error');
+    }
+    
+    if(newAuteur ==='')
+    {
+      textAuteur.current.classList.add('expression-error');
+    } 
+    
+    if(newQuote !='' && newAuteur !='')
+    {
+      textAuteur.current.classList.remove('expression-error');
+      textArea.current.classList.remove('expression-error');
+      await awaitAnimation(animeTitre());
+      setMessageUserVisible(true);
+      setMessageUser(newQuote);
+      setAuteurUser(newAuteur);
       setNewQuote("");
       setNewAuteur("");
-    }, 5000);
+      setTimeout( async () => {
+        await awaitAnimation(animeTitre());
+        setMessageUserVisible(false);
+      }, 5000);
+    }
   };
 
   return (
     <div className="expression-container">
       <ChangePage isDown={isDown} />
-      <h1 className={`expression-titre  ${messageUserVisible ? "messageVisible" :  ""}`}>
-        {messageUserVisible ? (
-          <>
-            {messageUser}
-            <span>- {AuteurUser}</span>
-          </>
-        ) : (
-          "Expression"
-        )}
-      </h1>
+      <div className="expression-titre-container">
+        <h1
+          className={`expression-titre  ${
+            messageUserVisible ? "messageVisible" : ""
+          }`}
+        >
+          {messageUserVisible ? (
+            <>
+              {messageUser}
+              <span>- {AuteurUser}</span>
+            </>
+          ) : (
+            "Expression"
+          )}
+        </h1>
+      </div>
 
       <div className="text-container">
         <form className="expression-form" action="">
@@ -177,6 +212,7 @@ const Expression = ({ isDown }) => {
             onBlur={() => setIsTextareaFocused(false)}
             onChange={(e) => setNewQuote(e.target.value)}
             value={newQuote}
+            ref={textArea}
           />
           <input
             className="expression-auteur"
@@ -186,6 +222,7 @@ const Expression = ({ isDown }) => {
             onBlur={() => setIsTextareaFocused(false)}
             onChange={(e) => setNewAuteur(e.target.value)}
             value={newAuteur}
+            ref={textAuteur}
           />
           <input
             className="expression-btn"
@@ -208,7 +245,6 @@ const Expression = ({ isDown }) => {
           <span>- {auteur}</span>
         </p>
       </div>
-      {/* <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={120000} delaisOut={30000}/> */}
     </div>
   );
 };

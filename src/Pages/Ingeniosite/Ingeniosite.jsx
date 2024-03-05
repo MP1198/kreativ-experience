@@ -20,7 +20,7 @@ const Ingeniosite = ({ isDown }) => {
     {
       id: "output",
       type: "ingeniositeNode",
-      position: { x: 250, y: 300 },
+      position: { x: 300, y: 300 },
       style: { width: 1110, height: 200, textShadow: "0 0 0px rgba(0, 0, 0, 0)"},
       connectable: true,
     },
@@ -186,7 +186,17 @@ const Ingeniosite = ({ isDown }) => {
         />
       </div>
       <Dragable />
-      {/* <Instruction texte={"Maintenez la barre d'espacement enfoncée"} delais={120000} delaisOut={30000}/> */}
+      <Instruction
+        texte={
+          <>
+            Drag and drop des cercles,
+            <br /> 
+            puis connecter les au cercle central
+          </>
+        }
+        delais={1000}
+        delaisOut={30000}
+      />
     </div>
   );
 };
