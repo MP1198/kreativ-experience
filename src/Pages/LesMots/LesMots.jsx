@@ -2,7 +2,7 @@ import "./LesMots.scss";
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const LesMots = ({ isDown }) => {
+const LesMots = ({ isDown, visitePage}) => {
   const lesMotsAvecStyles = [
     {
       mot: "Ingéniosité",
@@ -60,16 +60,20 @@ const LesMots = ({ isDown }) => {
 
     const stopLoop = () => {
       if (isLooping) {
-        console.log(interval);
-        setIsLooping(false);
-        setCurrentIndex(0);
-        navigate(lesMotsAvecStyles[currentIndex].path);
+          setIsLooping(false);
+
+          const pageOuOnVa = visitePage(lesMotsAvecStyles[currentIndex].path);
+          console.log(pageOuOnVa, "les-mots");
+        if (pageOuOnVa === null) {
+          navigate("/fin");
+        } else {
+          navigate(pageOuOnVa);
+        }
       }
     };
 
     if (isDown) {
       startLoop();
-      console.log("chouette il");
     } else {
       stopLoop();
     }
