@@ -117,6 +117,7 @@ const Originalite = ({ isDown }) => {
     }
     
     const key = e.key.toLowerCase();
+    // console.log(e.key);
     
     if (e.shiftKey) 
     {

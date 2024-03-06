@@ -179,6 +179,12 @@ const Expression = ({ isDown }) => {
     }
   };
 
+  const handleAuteurKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="expression-container">
       <ChangePage isDown={isDown} />
@@ -221,6 +227,7 @@ const Expression = ({ isDown }) => {
             onFocus={() => setIsTextareaFocused(true)}
             onBlur={() => setIsTextareaFocused(false)}
             onChange={(e) => setNewAuteur(e.target.value)}
+            onKeyDown={(e) => handleAuteurKeyDown(e)}
             value={newAuteur}
             ref={textAuteur}
           />

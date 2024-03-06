@@ -1,5 +1,6 @@
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Navigate, RouterProvider, createBrowserRouter} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect} from "react";
 
 // Pages
 import Layout from "./Components/Layout/Layout";
@@ -9,6 +10,9 @@ import Originalite from "./Pages/Originalite/Originalite";
 import Ingeniosite from "./Pages/Ingeniosite/Ingeniosite";
 import Expression from "./Pages/Expression/Expression";
 import Experimentation from "./Pages/Experimentation/Experimentation";
+
+// composant
+import PageTracker from "./Components/PageTracker/PageTracker";
 
 // fonts
 import "./Fonts/Fonts.scss";
@@ -28,6 +32,7 @@ import "./Fonts/chopin-light-webfont.woff";
 import "./Fonts/chopin-light-webfont.woff2";
 import "./Fonts/aesthetic_romance-webfont.woff";
 import "./Fonts/aesthetic_romance-webfont.woff2";
+import Fin from "./Pages/Fin/Fin";
 
 
 
@@ -58,6 +63,8 @@ const App = () => {
   
   }, []);
 
+
+
   const routes = [
     {
       path: "/",
@@ -69,8 +76,12 @@ const App = () => {
           element: <Accueil isDown={isSpaceDown}/>
         },
         {
+          path: "/fin",
+          element: <Fin/>
+        },
+        {
           path: "les-mots",
-          element: <LesMots  isDown={isSpaceDown}/>
+          element: <LesMots  isDown={isSpaceDown} pathIndex={pageIndex}/>
         },
         {
           path: "originalite",
@@ -97,7 +108,8 @@ const App = () => {
   ];
 
   return (
-    <RouterProvider router={createBrowserRouter(routes)} />
+    <RouterProvider router={createBrowserRouter(routes)} onLoad={handlePageLoad}>
+    </RouterProvider>
   
   );
 };

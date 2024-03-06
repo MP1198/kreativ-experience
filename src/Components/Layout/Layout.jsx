@@ -14,6 +14,7 @@ const Layout = () => {
   }, [location]);
 
   return (
+    // context provider ici
     <div className="layout">
       <main>
         {/* <HeaderApp /> */}
@@ -21,6 +22,7 @@ const Layout = () => {
         {/* <FooterApp /> */}
       </main>
     </div>
+      // context provider ici
   );
 };
 
