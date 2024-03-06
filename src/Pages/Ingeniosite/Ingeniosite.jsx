@@ -20,7 +20,7 @@ const Ingeniosite = ({ isDown }) => {
     {
       id: "output",
       type: "ingeniositeNode",
-      position: { x: 300, y: 300 },
+      position: { x: 150, y: 300 },
       style: { width: 1110, height: 200, textShadow: "0 0 0px rgba(0, 0, 0, 0)"},
       connectable: true,
     },

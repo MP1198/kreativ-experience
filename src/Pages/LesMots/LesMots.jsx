@@ -21,13 +21,13 @@ const LesMots = ({isDown}) => {
             },
             path: "/expression",
         },
-        {   mot: "Inspiration",
+        {   mot: "Originalité",
             style: { 
                 fontFamily: "lostar", 
                 fontWeight: "200",
                 letterSpacing: "8px",
             },
-            path: "/inspiration",
+            path: "/originalite",
         },
         {   mot: "Expérimentation",
             style: { 

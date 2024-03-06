@@ -1,4 +1,4 @@
-.originalite-container{
+.originalite-container {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.originalite-titre{
+.originalite-titre {
     font-family: "lostar";
     font-size: 180px;
     font-weight: 200;
@@ -17,9 +17,23 @@
     z-index: 3;
 }
 
+.originalite-cercles-container {
+    position: absolute;
+    top: 0;
+    left: -60px;
+    z-index: -5;
+    display: grid;
+    grid-gap: 5px;
 
+    .originalite-cercle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        filter: blur(5px);
+    }
+}
 
-.roulette-container{
+.roulette-container {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -29,7 +43,7 @@
     width: 1px;
     height: 100vh;
 
-    .element{
+    .element {
         position: absolute;
         opacity: 1;
         width: 2px;

@@ -19,6 +19,21 @@
   z-index: 3;
 }
 
+.originalite-cercles-container {
+  position: absolute;
+  top: 0;
+  left: -60px;
+  z-index: -5;
+  display: grid;
+  grid-gap: 5px;
+}
+.originalite-cercles-container .originalite-cercle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
 .roulette-container {
   position: relative;
   width: 100%;
