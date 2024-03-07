@@ -67,13 +67,37 @@
     padding-right: 35px;
     color: white;
     
+    
     &::before{
         content: '';
-        width: 73%;
+        width: 70%;
         height: 8px;
         background-color: white;
         position: absolute;
         left: 0;
         bottom: 36vh;
+        
     }
 }
+
+@media only screen and (max-width: 1600px) {
+    .accueil-slogan::before {
+        width: 70%;
+    }
+  }
+@media only screen and (max-width: 1400px) {
+    .accueil-slogan::before {
+        width: 65%;
+    }
+  }
+@media only screen and (min-width: 1200px) {
+    .accueil-slogan::before {
+        width: 80%;
+    }
+  }
+@media only screen and (min-width: 992px) {
+    .accueil-slogan::before {
+        bottom: 34vh;
+        width: 50%;
+    }
+  }

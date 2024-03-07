@@ -1,0 +1,39 @@
+.widthFurteur-container{
+    min-height: 100vh;
+    width: 100%;
+    cursor: none;
+    position: relative;
+}
+
+.widthFurteur-textes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10000000;
+    text-align: center;
+    margin-top: 50px;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+.widthFurteur-h1{
+    font-family: "aesthetic_romance";
+    font-size: 100px;
+    color: white;
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+.widthFurteur-p{
+    font-family: "chopin";
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    width: 80%;
+    line-height: 1.5;
+    font-weight: 500;
+
+}

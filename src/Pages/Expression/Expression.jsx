@@ -3,13 +3,6 @@ import anime from "animejs";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Expression.scss";
 import citations from "./citations.json";
-import Instruction from "../../Components/UI/Instruction";
-
-//  aPRES LES TESTS - NE PAS POUVOIR CLIQUER SI UN CHAMP DU FORMULAIRE EST VIDE
-// MESSAGE ERREUR
-
-// Je me demande si j'affiches des quotes jusqu'à ce que
-// l'écran soit rempli de messages
 
 const Expression = ({ isDown }) => {
   const [isTextareaFocused, setIsTextareaFocused] = useState(false);

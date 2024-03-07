@@ -4,12 +4,6 @@ import "./Originalite.scss";
 import anime from "animejs";
 import { useEffect, useState, useRef } from "react";
 
-// OnKeyDown toutes les couleurs changent et les lettres se melange
-// Si shift est appyer en meme temps qu'un touche hue rotation
-// Si une touche contenant une lettre du mot est appuyer alors le mot revient
-// Si shift est appuyer en meme temps qu'une touche contenant une lettre du mot alors le mot fait un hueRotation
-
-// Les cercles fadeIn en stagger à partir du coin haut gauche
 const Originalite = ({ isDown }) => {
   const cerclesContainer = useRef(null);
   const [cercles, setCercles] = useState([]);
@@ -160,7 +154,7 @@ const Originalite = ({ isDown }) => {
         opacity: [0, 1],
         delay: anime.stagger(300),
         easing: "easeInOutQuad",
-        duration: 5000,
+        duration: 3000,
       });
     }, []);
 
@@ -187,6 +181,17 @@ const Originalite = ({ isDown }) => {
           ></div>
         ))}
       </div>
+      <Instruction
+        texte={
+          <>
+            Appuyer sur les touches du clavier
+            <br /> 
+            ... il y a une combinaison surprise
+          </>
+        }
+        delais={1000}
+        delaisOut={30000}
+      />
     </div>
   );
 };

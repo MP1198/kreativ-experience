@@ -3,6 +3,7 @@ import anime from "animejs";
 import "./Experimentation.scss";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import Instruction from "../../Components/UI/Instruction";
+import UI from "../../Components/UI/UI";
 
 const awaitAnimation = (objetAnimation) => {
   const promise = new Promise((resolve, reject) => {
@@ -15,10 +16,12 @@ const delay = (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-const Experimentation2 = ({ isDown }) => {
+const Experimentation = ({ isDown, incrementData, data }) => {
+
   const cibleRef = useRef(null);
   const composantsRefs = useRef([]);
   const timeoutExplosion = useRef();
+  const dataPath = "nbCliquesExperi";
 
   useEffect(() => {
     const lettres = Array.from(
@@ -154,6 +157,8 @@ const Experimentation2 = ({ isDown }) => {
       kid3.style.backgroundColor = calculerCouleur(e);
       kid4.style.backgroundColor = calculerCouleur(e);
       e.target.appendChild(tireEl);
+
+      incrementData(dataPath);
     };
 
     const handleCible = async (e) => {
@@ -248,8 +253,10 @@ const Experimentation2 = ({ isDown }) => {
         delaisOut={20000}
         couleur={"rouge"}
       />
+      {/* Afficher le nb de cliques ici */}
+      <UI texte={"Nombre de cliques collectifs"} nbDonnees={0}/>
     </div>
   );
 };
 
-export default Experimentation2;
+export default Experimentation;
