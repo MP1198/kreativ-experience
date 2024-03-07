@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+
 const config = {
     apiKey: "AIzaSyApBmlf9oXJv0Ll515eAAjtgEoTWeYEaXg",
     authDomain: "kreativ-99547.firebaseapp.com",
@@ -10,4 +11,4 @@ const config = {
     measurementId: "G-ETP9EVC71J"
 }
 const app = initializeApp(config);
-export const db = getFirestore();
+export default getFirestore(app);

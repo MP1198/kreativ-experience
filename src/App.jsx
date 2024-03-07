@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // BD
-import {db} from "../config.js";
+import db from "../config.js";
 import { onSnapshot, updateDoc, doc, increment } from "firebase/firestore";
 
 // Pages
