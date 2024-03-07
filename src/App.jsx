@@ -7,9 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // BD
-import config from "../config";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get, onValue } from "firebase/database";
+import db from "../config";
+import { onSnapshot, updateDoc, doc, increment } from "firebase/firestore";
 
 // Pages
 import Layout from "./Components/Layout/Layout";
@@ -54,47 +53,27 @@ const App = () => {
 
   // BD
   const [donnees, setDonnees] = useState({
-    nbCliquesExperi: 0,
-    nbMessagesExpres: 0,
-    nbConnexionsIngenio: 0,
-    nbTouchesAppuyeesOrigi: 0,
+    nbCliques: 0,
+    nbMessages: 0,
+    nbConnexions: 0,
+    nbTouches: 0,
   });
 
-  // const app = initializeApp(config);
-  // const db = getDatabase(app);
-  // useEffect(() => {
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, "stats", "stats"), (snapshot) => {
+      const documents = snapshot.data();
+      setDonnees(documents);
+    });
 
-  //   // Fetch des données depuis la base de données
-  //   const donneesRef = ref(db, "/");
-  //   onValue(donneesRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data) {
-  //       setDonnees(data);
-  //     }
-  //   });
-  // }, []);
+    return unsub;
+  }, []);
 
-  const incrementData = (key) => {
-    // const dbRef = ref(db);
-    // console.log(dbRef, "dbref");
-    // const dataRef = ref(dbRef, key);
-    // console.log(dataRef, "dataref");
-    // const increment = dataRef.count +1;
-    // dataRef.update({ nbCliquesExperi: increment });
-    // console.log(dataRef, key);
-    //   console.log("incrementData", key);
-    //   const dbRef = ref(db); // Assurez-vous d'avoir une référence valide à votre base de données
-    //   console.log(dbRef);
-    //   const dataRef = ref(dbRef, key); // Accédez au chemin spécifié dans la base de données
-    //   console.log(dataRef);
-    // runTransaction(dataRef, (currentData) => {
-    //   // Incrémentez la valeur actuelle de données
-    //   return (currentData || 0) + 1;
-    // }).then(() => {
-    // }).catch((error) => {
-    //   // La transaction a échoué, gérez l'erreur si nécessaire
-    //   console.error("Transaction failed: ", error);
-    // });
+  const incrementData = async (key) => {
+    const statsRef = doc(db, "stats", "stats");
+
+    await updateDoc(statsRef, {
+      [key]: increment(1),
+    });
   };
 
   // changement Page
@@ -188,15 +167,33 @@ const App = () => {
         },
         {
           path: "originalite",
-          element: <Originalite isDown={isSpaceDown} />,
+          element: (
+            <Originalite
+              isDown={isSpaceDown}
+              incrementData={incrementData}
+              donnees={donnees}
+            />
+          ),
         },
         {
           path: "ingeniosite",
-          element: <Ingeniosite isDown={isSpaceDown} />,
+          element: (
+            <Ingeniosite
+              isDown={isSpaceDown}
+              incrementData={incrementData}
+              donnees={donnees}
+            />
+          ),
         },
         {
           path: "expression",
-          element: <Expression isDown={isSpaceDown} />,
+          element: (
+            <Expression
+              isDown={isSpaceDown}
+              incrementData={incrementData}
+              donnees={donnees}
+            />
+          ),
         },
         {
           path: "experimentation",
@@ -204,6 +201,7 @@ const App = () => {
             <Experimentation
               isDown={isSpaceDown}
               incrementData={incrementData}
+              donnees={donnees}
             />
           ),
         },

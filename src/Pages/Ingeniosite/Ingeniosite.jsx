@@ -14,8 +14,9 @@ import ReactFlow, {
   Background,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import UI from "../../Components/UI/UI";
 
-const Ingeniosite = ({ isDown }) => {
+const Ingeniosite = ({ isDown, incrementData, donnees }) => {
   const initialNodes = [
     {
       id: "output",
@@ -129,6 +130,7 @@ const Ingeniosite = ({ isDown }) => {
 
     setEdges((prevEdges) => [...prevEdges, newEdge]);
     updateTextShadow(connectedNodeColors);
+    incrementData("nbConnexions");
   };
   
   const updateTextShadow = (colors) => {
@@ -197,6 +199,7 @@ const Ingeniosite = ({ isDown }) => {
         delais={1000}
         delaisOut={30000}
       />
+      <UI texte={"Connexions collectives"} nbDonnees={donnees.nbConnexions}/>
     </div>
   );
 };

@@ -3,8 +3,9 @@ import anime from "animejs";
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import "./Expression.scss";
 import citations from "./citations.json";
+import UI from "../../Components/UI/UI";
 
-const Expression = ({ isDown }) => {
+const Expression = ({ isDown, incrementData, donnees }) => {
   const [isTextareaFocused, setIsTextareaFocused] = useState(false);
 
   useEffect(() => {
@@ -157,6 +158,7 @@ const Expression = ({ isDown }) => {
     
     if(newQuote !='' && newAuteur !='')
     {
+      incrementData("nbMessages");
       textAuteur.current.classList.remove('expression-error');
       textArea.current.classList.remove('expression-error');
       await awaitAnimation(animeTitre());
@@ -245,6 +247,7 @@ const Expression = ({ isDown }) => {
           <span>- {auteur}</span>
         </p>
       </div>
+      <UI texte={"Messages affichés"} nbDonnees={donnees.nbMessages}/>
     </div>
   );
 };

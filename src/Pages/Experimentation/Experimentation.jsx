@@ -16,12 +16,11 @@ const delay = (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
-const Experimentation = ({ isDown, incrementData, data }) => {
+const Experimentation = ({ isDown, incrementData, donnees }) => {
 
   const cibleRef = useRef(null);
   const composantsRefs = useRef([]);
   const timeoutExplosion = useRef();
-  const dataPath = "nbCliquesExperi";
 
   useEffect(() => {
     const lettres = Array.from(
@@ -158,9 +157,8 @@ const Experimentation = ({ isDown, incrementData, data }) => {
       kid4.style.backgroundColor = calculerCouleur(e);
       e.target.appendChild(tireEl);
 
-      incrementData(dataPath);
     };
-
+    
     const handleCible = async (e) => {
       if (e.target === cibleRef.current) {
         cibleRef.current.removeEventListener("mousedown", handleCible);
@@ -177,11 +175,15 @@ const Experimentation = ({ isDown, incrementData, data }) => {
       } else {
         explosion();
         creationTire(e);
+        if(e.currentTarget === cibleRef.current){
+          incrementData("nbCliques");
+        }
+
       }
     };
-
+    
     timerExplosion();
-
+    
     return () => {
       if (cibleRef.current) {
         cibleRef.current.removeEventListener("mousedown", handleCible);
@@ -254,7 +256,7 @@ const Experimentation = ({ isDown, incrementData, data }) => {
         couleur={"rouge"}
       />
       {/* Afficher le nb de cliques ici */}
-      <UI texte={"Nombre de cliques collectifs"} nbDonnees={0}/>
+      <UI texte={"Cliques collectifs"} nbDonnees={donnees.nbCliques}/>
     </div>
   );
 };

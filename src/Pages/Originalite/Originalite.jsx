@@ -1,10 +1,11 @@
 import ChangePage from "../../Components/ChangePage/ChangePage";
 import Instruction from "../../Components/UI/Instruction";
+import UI from "../../Components/UI/UI";
 import "./Originalite.scss";
 import anime from "animejs";
 import { useEffect, useState, useRef } from "react";
 
-const Originalite = ({ isDown }) => {
+const Originalite = ({ isDown, incrementData, donnees }) => {
   const cerclesContainer = useRef(null);
   const [cercles, setCercles] = useState([]);
   const lesGradients = [
@@ -112,7 +113,7 @@ const Originalite = ({ isDown }) => {
     
     const key = e.key.toLowerCase();
     // console.log(e.key);
-    
+    incrementData("nbTouches");
     if (e.shiftKey) 
     {
       if (key !== "shift" && "originalte".includes(key)) {
@@ -192,7 +193,9 @@ const Originalite = ({ isDown }) => {
         delais={1000}
         delaisOut={30000}
       />
+      <UI texte={"Touches appuyées"} nbDonnees={donnees.nbTouches}/>
     </div>
+    
   );
 };
 
