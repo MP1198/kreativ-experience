@@ -40,16 +40,8 @@ import "./Fonts/aesthetic_romance-webfont.woff2";
 import Fin from "./Pages/Fin/Fin";
 import WidthFurteur from "./Pages/WidthFurteur/WidthFurteur";
 
+const ambiance = new Audio("../public/sons/KreativMusic.wav");
 const App = () => {
-  const ambiance = new Audio("../public/sons/KreativMusic.wav");
-  ambiance.loop = true;
-  ambiance.volume = 0.2;
-
-  useEffect(() => {
-    return () => {
-      ambiance.pause();
-    };
-  }, []);
 
   // BD
   const [donnees, setDonnees] = useState({
@@ -115,16 +107,36 @@ const App = () => {
     }
   }
 
+  const [joue, setJoue] = useState(false);
+  const handleStartAmbiance = () => {
+    if (ambiance.paused && !joue) {
+      ambiance.play();
+      ambiance.loop = true;
+      ambiance.volume = 0.2; 
+      setJoue(true);
+    } 
+  };
+  const handlePlayPauseAmbiance = () => {
+    if (ambiance.paused) {
+      ambiance.play();
+      ambiance.loop = true;
+      ambiance.volume = 0.2; 
+    } else{
+      ambiance.pause();
+    }
+  };
+
+
+  
   // Verification de la touche espace
   const [isSpaceDown, setIsSpaceDown] = useState(false);
-
   useEffect(() => {
+
+
     const handleKeyDown = (e) => {
       if (e.key === " ") {
         setIsSpaceDown(true);
-        ambiance.play().catch((error) => {
-          console.error("Failed to play audio:", error);
-        });
+        handleStartAmbiance();
       }
     };
 
@@ -146,7 +158,7 @@ const App = () => {
   const routes = [
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout handleAmbiance={handlePlayPauseAmbiance} />,
       children: [
         {
           path: "/",

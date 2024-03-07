@@ -1,33 +1,25 @@
 import "./BtnPause.scss";
-import {useRef} from "react";
-const BtnPause = () => {
-    const barRef = useRef([]);
-  let isPlaying = true;
-  const ambiance = new Audio("../public/sons/KreativMusic.wav");
+import { useRef, useState } from "react";
+const BtnPause = ({handleAmbiance}) => {
+  const barRef = useRef([]);
+  const [isPlaying, setIsPlaying] = useState(true);
+
   const pauseSound = () => {
     if (isPlaying) {
-        isPlaying = false;
-      ambiance.pause();
-      barRef.forEach(bar => {
-        bar.classList.add("btnPause-bar-pause")
-      });
+      barRef.current.classList.add("btnPause-bar-pause");
     } else {
-      isPlaying = true;
-      ambiance.loop = true;
-      ambiance.volume = 0.2;
-      ambiance.pause();
-      barRef.forEach(bar => {
-        bar.classList.remove("btnPause-bar-pause")
-      });
+      barRef.current.classList.remove("btnPause-bar-pause");
     }
+    handleAmbiance();
+    setIsPlaying(!isPlaying);
   };
   return (
     <div className="btnPause-container">
-      <button className="btnPause-wave" onClick={pauseSound}>
-        <div className="btnPause-bar" ref={barRef}></div>
-        <div className="btnPause-bar" ref={barRef}></div>
-        <div className="btnPause-bar" ref={barRef}></div>
-        <div className="btnPause-bar" ref={barRef}></div>
+      <button className="btnPause-wave" onClick={pauseSound} ref={barRef}>
+        <div className="btnPause-bar" ></div>
+        <div className="btnPause-bar" ></div>
+        <div className="btnPause-bar" ></div>
+        <div className="btnPause-bar" ></div>
       </button>
     </div>
   );

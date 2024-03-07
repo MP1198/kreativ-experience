@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import "./Layout.scss";
 import BtnPause from "../BtnPause/BtnPause";
 
-const Layout = () => {
+const Layout = ({handleAmbiance}) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Layout = () => {
     <div className="layout">
       <main>
         <Outlet />
-        <BtnPause />
+        <BtnPause handleAmbiance={handleAmbiance}/>
       </main>
     </div>
   );
