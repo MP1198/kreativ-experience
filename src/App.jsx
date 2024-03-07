@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 
 // BD
 import db from "../config";
-import { onSnapshot, updateDoc, doc, increment } from "firebase/firestore";
+// import { onSnapshot, updateDoc, doc, increment } from "firebase/firestore";
+import { onSnapshot, updateDoc, doc, increment} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
 
 // Pages
 import Layout from "./Components/Layout/Layout";
