@@ -11,4 +11,4 @@ const config = {
     measurementId: "G-ETP9EVC71J"
 }
 const app = initializeApp(config);
-export default getFirestore(app);
+export const db = getFirestore();
