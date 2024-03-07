@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
+// import { getFirestore } from "firebase/firestore";
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.5/firebase-firestore.js';
 const config = {
     apiKey: "AIzaSyApBmlf9oXJv0Ll515eAAjtgEoTWeYEaXg",
     authDomain: "kreativ-99547.firebaseapp.com",
