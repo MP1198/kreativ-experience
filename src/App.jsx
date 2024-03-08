@@ -3,6 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // BD
@@ -19,6 +20,8 @@ import Originalite from "./Pages/Originalite/Originalite";
 import Ingeniosite from "./Pages/Ingeniosite/Ingeniosite";
 import Expression from "./Pages/Expression/Expression";
 import Experimentation from "./Pages/Experimentation/Experimentation";
+import Fin from "./Pages/Fin/Fin";
+import WidthFurteur from "./Pages/WidthFurteur/WidthFurteur";
 
 // fonts
 import "./Fonts/Fonts.scss";
@@ -38,10 +41,8 @@ import "./Fonts/chopin-light-webfont.woff";
 import "./Fonts/chopin-light-webfont.woff2";
 import "./Fonts/aesthetic_romance-webfont.woff";
 import "./Fonts/aesthetic_romance-webfont.woff2";
-import Fin from "./Pages/Fin/Fin";
-import WidthFurteur from "./Pages/WidthFurteur/WidthFurteur";
 
-const ambiance = new Audio("../public/sons/KreativMusic.wav");
+const ambiance = new Audio("/sons/KreativMusic.wav");
 const App = () => {
 
   // BD

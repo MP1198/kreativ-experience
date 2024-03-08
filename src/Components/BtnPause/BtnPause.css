@@ -4,9 +4,9 @@
 
 .btnPause-wave {
   position: absolute;
-  bottom: 162px;
-  right: -109px;
-  width: 300px;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -26,7 +26,7 @@
   animation: btnPause-wave-animation 1.8s ease-in-out infinite;
 }
 
-.btnPause-bar-pause {
+.btnPause-bar-pause .btnPause-bar {
   animation: none;
 }
 

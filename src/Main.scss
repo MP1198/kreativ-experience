@@ -1,4 +1,3 @@
-@import "Pages/Experimentation/Experimentation.scss";
 
 *,
 *::before,
@@ -25,7 +24,7 @@ body{
         height: 300%;
         width: 300%;
         filter: url("#grainy");
-        background: url("../public/svg_accueil/noiseBG.svg");
+        background: url("/svg_accueil/noise.svg");
         position: fixed;
         left: -50%;
         top: -110%;

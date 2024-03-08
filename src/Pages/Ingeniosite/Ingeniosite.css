@@ -40,4 +40,8 @@
   background: radial-gradient(circle at center, #ffffff 0%, #4a0074 100%);
   border-radius: 50%;
   box-shadow: 0 0 5px #4a0074, 0 0 1px #4a0074, 0px 0px 10px 5px #4a0074;
+}
+
+.react-flow__panel {
+  display: none;
 }/*# sourceMappingURL=Ingeniosite.css.map */
